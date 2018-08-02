@@ -1,4 +1,4 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
 <meta charset="utf-8">
@@ -25,18 +25,27 @@
             </li>
           </ul>
           <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">Hello, [username]</a>
-            </li>
-            <form class="" action="includes/logout.inc.php" method="POST">
-              <button class="btn btn-warning"type="submit" name="submit">Log Out</button>
-            </form>
-            <form id="main-form" action="includes/login.inc.php" method="POST">
-              <input class="form-control"type="text" name="uid" placeholder="Username/email">
-              <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
-              <button class="btn btn-primary"type="submit" name="submit">Sign In</button>
-              <a class="btn btn-warning"href="signup.php">Sign Up</a>
-            </form>
+            <?php
+              if (isset($_SESSION['u_id'])) {
+                ?>
+                <li class="nav-item active">
+                <a class="nav-link" href="#">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
+                </li>
+                <form class="main-form" action="includes/logout.inc.php" method="POST">
+                  <button class="btn btn-warning"type="submit" name="submit">Log Out</button>
+                </form>
+                <?php
+              }else{
+                ?>
+                <form class="main-form" action="includes/login.inc.php" method="POST">
+                  <input class="form-control"type="text" name="uid" placeholder="Username/email">
+                  <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
+                  <button class="btn btn-primary"type="submit" name="submit">Sign In</button>
+                <a class="btn btn-warning"href="signup.php">Sign Up</a>
+                </form>
+                <?php
+              }
+             ?>
           </ul>
         </div>
       </div>
