@@ -22,4 +22,9 @@
   #signup button {
     margin-top: 10px; }
 
+a.nav-link {
+  color: #898989 !important; }
+  a.nav-link:hover {
+    color: #000 !important; }
+
 /*# sourceMappingURL=style.css.map */
