@@ -1,12 +1,20 @@
 <?php include 'header.php' ?>
 <section>
-  <h1>Welcome!</h1>
+  <?php
+  if (!isset($_SESSION['u_id'])) {
+    ?>
+      <h1>Log in to view content</h1>
+    <?php }
+     ?>
 </section>
 
   <section>
     <div class="container">
       <div class="row">
-
+        <?php   if (isset($_SESSION['u_id'])) {
+        ?>
+          <h1>YOU ARE LOGEGD IN!</h1>
+        <?php } ?>
         </div>
       </div>
     </div>
