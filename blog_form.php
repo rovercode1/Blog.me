@@ -11,8 +11,8 @@
         <form  action="includes/new_blog.inc.php" method="post">
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" required>
-            <label>Blog Url</label>
-          <input class="form-control"type="text" name="url" placeholder="Blog Url" required>
+            <!-- <label>Blog Url(optional)</label>
+          <input class="form-control"type="text" name="url" placeholder="Blog Url" required> -->
             <label>Blog Body</label>
           <textarea rows='10'class="form-control"type="text" name="body" placeholder="What's on your mind?" required></textarea>
           <button class="form-control btn btn-primary"type="submit" name="submit">Post</button>
