@@ -34,13 +34,13 @@
                 <li class="nav-item active">
                 <a class="nav-link" href="#">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
                 </li>
-                <form class="" action="includes/logout.inc.php" method="POST">
+                <form  action="includes/logout.inc.php" method="POST">
                   <button class="btn btn-warning"type="submit" name="submit">Log Out</button>
                 </form>
                 <?php
               }else{
                 ?>
-                <form id="main-form" action="includes/login.inc.php" method="POST">
+                <form class="main-form" action="includes/login.inc.php" method="POST">
                   <input class="form-control"type="text" name="uid" placeholder="Username/email">
                   <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
                   <button class="btn btn-primary"type="submit" name="submit">Sign In</button>
