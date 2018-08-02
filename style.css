@@ -1,0 +1,36 @@
+.main-wrapper {
+  border: 1px solid #efefef;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  box-shadow: 4px 2px 8px #eaeaea;
+  margin-top: 20px;
+  margin: auto; }
+
+.main-form {
+  display: flex;
+  align-items: center; }
+
+#signup {
+  max-width: 800px; }
+
+nav {
+  margin-bottom: 20px; }
+
+#signup {
+  display: flex;
+  flex-direction: column; }
+  #signup label {
+    margin: 0px; }
+  #signup input {
+    margin-bottom: 10px;
+    padding: 20px; }
+  #signup button {
+    margin-top: 10px; }
+
+a.nav-link {
+  color: #898989 !important; }
+  a.nav-link:hover {
+    color: #000 !important; }
+
+/*# sourceMappingURL=style.css.map */

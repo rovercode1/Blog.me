@@ -1,0 +1,21 @@
+.main-wrapper
+{
+  border: 1px solid #efefef;
+  border-radius: 8px;
+  padding: 20px;
+  max-width: 400px;
+  box-shadow: 4px 2px 8px #eaeaea;
+  margin-top: 20px;
+  margin: auto;
+}
+
+.main-form
+{
+  display: flex;
+  align-items: center;
+}
+
+#signup
+{
+  max-width: 800px;
+}
