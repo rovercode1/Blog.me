@@ -17,6 +17,9 @@
 nav {
   margin-bottom: 20px; }
 
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  background: #f8f9fa00 !important; }
+
 #signup {
   display: flex;
   flex-direction: column; }
