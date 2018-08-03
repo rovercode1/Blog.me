@@ -3,7 +3,7 @@
   <?php
   if (!isset($_SESSION['u_id'])) {
     ?>
-      <h1>Log in to view content</h1>
+    <?php include 'front-page.php' ?>
     <?php }
      ?>
 </section>
@@ -13,7 +13,7 @@
       <div class="row">
         <?php   if (isset($_SESSION['u_id'])) {
         ?>
-          <h1>YOU ARE LOGEGD IN!</h1>
+          <!-- <h1>YOU ARE LOGEGD IN!</h1> -->
         <?php } ?>
         </div>
       </div>
