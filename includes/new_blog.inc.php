@@ -9,7 +9,6 @@ if (isset($_SESSION['u_id'])) {
       // escapes special characters in a string for use in an SQL statement.
     $author = $_SESSION["u_uid"];
     $title = mysqli_real_escape_string($conn,$_POST['title']);
-    $url = mysqli_real_escape_string($conn,$_POST['url']);
     $body = mysqli_real_escape_string($conn,$_POST['body']);
     $date = date("l jS \of F Y h:i:s A");
       // Error handlers

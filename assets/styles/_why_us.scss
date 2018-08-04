@@ -1,0 +1,18 @@
+.text-field
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-family: roboto;
+    background: #db9c00;
+    padding: 0px 50px;
+    color: #ffff;
+  }
+  #main-text{
+    font-size: 60px;
+    line-height: 71px;
+    margin: 6px;
+  }
+}

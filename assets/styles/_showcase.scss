@@ -1,0 +1,75 @@
+#showcase
+{
+  background: url(assets/img/abstract-art-candy-desktop.png);
+  height: 760px;
+  width: 100%;
+  background-position: center;
+  background-size: cover;
+  background-position: 0% 61%;
+  position: relative;
+  top: -76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  h1
+  {
+    font-family: 'Roboto', sans-serif;
+    color: #fff;
+    position: absolute;
+    font-size: 100px;
+    top: 137px;
+    background: #c5c5c599;
+    padding: 26px 90px;
+    border-radius: 10px;
+    font-size: 5.8rem;
+  }
+}
+
+section#showcase::after
+{
+  content: '';
+  position: absolute;
+  top: 601px;
+  width: 100%;
+  height: 200px;
+  background-position: center;
+  background: url(assets/img/block.png);
+  background-size: cover;
+}
+
+
+@media(max-width:1300px){
+#showcase{
+  height: 670px;
+  h1{
+    font-size: 4.8rem;
+  }
+}
+section#showcase::after{
+    top: 506px;
+  }
+}
+
+@media(max-width:990px){
+  #showcase{
+    height: 481px;
+    h1
+    {
+      font-size: 2.8rem;
+    }
+  }
+  section#showcase::after{
+    top: 322px;
+  }
+}
+
+@media(max-width:550px){
+  #showcase{
+    background-position: 50% 50%;
+    h1
+    {
+      padding: 26px 49px;
+      font-size: 1.8rem;
+    }
+  }
+}
