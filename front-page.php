@@ -15,15 +15,15 @@
       <div class="row">
         <div class="col-lg-4">
           <img src="assets/img/desktop.png" alt="">
-          <p>Beautiful Blogs</p>
+          <p class='tag'>Beautiful Blogs</p>
         </div>
         <div class="col-lg-4">
           <img src="assets/img/phone.png" alt="">
-          <p>Mobile Friendly</p>
+          <p class='tag'>Mobile Friendly</p>
         </div>
         <div class="col-lg-4">
           <img src="assets/img/seo.png" alt="">
-          <p>Industry-leading seo</p>
+          <p class='tag'>Industry-leading seo</p>
         </div>
       </div>
     </div>
