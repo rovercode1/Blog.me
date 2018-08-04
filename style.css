@@ -92,5 +92,19 @@ section#showcase::after {
     #showcase h1 {
       padding: 26px 49px;
       font-size: 1.8rem; } }
+.text-field {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; }
+  .text-field h1 {
+    font-family: roboto;
+    background: #db9c00;
+    padding: 0px 50px;
+    color: #ffff; }
+  .text-field #main-text {
+    font-size: 60px;
+    line-height: 71px;
+    margin: 6px; }
 
 /*# sourceMappingURL=style.css.map */
