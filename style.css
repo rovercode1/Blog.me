@@ -15,6 +15,7 @@
   max-width: 800px; }
 
 nav {
+  z-index: 1;
   margin-bottom: 20px; }
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
@@ -38,20 +39,38 @@ a.nav-link {
 
 #showcase {
   background: url(assets/img/abstract-art-candy-desktop.png);
-  height: 659px;
+  height: 760px;
   width: 100%;
   background-position: center;
   background-size: cover;
-  background-position: 0% 61%; }
+  background-position: 0% 61%;
+  position: absolute;
+  top: 0px; }
 
 section#showcase::after {
   content: '';
   position: absolute;
-  top: 468px;
+  top: 601px;
   width: 100%;
   height: 200px;
   background-position: center;
   background: url(assets/img/block.png);
   background-size: cover; }
+
+@media (max-width: 1300px) {
+  #showcase {
+    height: 670px; }
+
+  section#showcase::after {
+    top: 506px; } }
+@media (max-width: 990px) {
+  #showcase {
+    height: 481px; }
+
+  section#showcase::after {
+    top: 322px; } }
+@media (max-width: 550px) {
+  #showcase {
+    background-position: 50% 50%; } }
 
 /*# sourceMappingURL=style.css.map */
