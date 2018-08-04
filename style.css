@@ -187,5 +187,37 @@ section#showcase::after {
     border: 3px solid #ffb600;
     padding: 3px 10px;
     border-radius: 8px; }
+  #features #feature-box {
+    display: flex;
+    align-items: center;
+    margin: 44px 0px; }
+    #features #feature-box .text-box {
+      flex: 1; }
+    #features #feature-box img {
+      max-width: 510px;
+      flex: 1;
+      opacity: 0.8;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      width: 100%; }
+
+@media (max-width: 990px) {
+  #features h3 {
+    font-size: 1.85rem; }
+  #features h2 {
+    font-size: 29px; }
+  #features #feature-box {
+    flex-direction: column;
+    display: flex;
+    align-items: flex-start;
+    margin: 0px; } }
+@media (max-width: 550px) {
+  #features h3 {
+    font-size: 1.35rem; }
+  #features h2 {
+    font-size: 1.15rem; } }
+@media (max-width: 450px) {
+  #features h3 {
+    font-size: 1.25rem; } }
 
 /*# sourceMappingURL=style.css.map */
