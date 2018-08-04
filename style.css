@@ -15,8 +15,7 @@
   max-width: 800px; }
 
 nav {
-  z-index: 1;
-  margin-bottom: 20px; }
+  z-index: 1; }
 
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   background: #f8f9fa00 !important; }
@@ -92,10 +91,13 @@ section#showcase::after {
       font-size: 4.8rem; }
 
   section#showcase::after {
-    top: 23%; } }
+    top: 20%; } }
 @media (max-width: 990px) {
   #showcase h1 {
-    font-size: 2.8rem; } }
+    font-size: 2.8rem; }
+
+  section#showcase::after {
+    top: 24%; } }
 @media (max-width: 666px) {
   #showcase h1 {
     padding: 26px 22px; }
