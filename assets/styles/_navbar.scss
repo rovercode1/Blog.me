@@ -32,3 +32,9 @@ a.nav-link
       color: #000 !important;
     }
 }
+
+@media(max-width:990px){
+  form.main-form{
+    flex-direction: column;
+  }
+}

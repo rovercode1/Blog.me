@@ -1,13 +1,12 @@
 #showcase
 {
   background: url(assets/img/abstract-art-candy-desktop.png);
-  height: 760px;
+    height: 725px;
   width: 100%;
   background-position: center;
   background-size: cover;
-  background-position: 0% 61%;
-  position: relative;
-  top: -76px;
+  background-position: 0% 90%;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -61,26 +60,27 @@ section#showcase::after
 @media(max-width:1300px){
 #showcase{
   height: 670px;
+
   h1{
     font-size: 4.8rem;
   }
 }
 section#showcase::after{
-    top: 506px;
+    top: 546px;;
   }
 }
 
 @media(max-width:990px){
   #showcase{
-    height: 481px;
+  // top: -234px;
     h1
     {
+      position: absolute;
+      top: 264px;
       font-size: 2.8rem;
     }
   }
-  section#showcase::after{
-    top: 322px;
-  }
+
 }
 @media(max-width:666px){
   #showcase
@@ -99,7 +99,7 @@ section#showcase::after{
     }
      #main-text
     {
-      font-size: 48px!important;
+      font-size: 43px!important;
     }
   }
 }

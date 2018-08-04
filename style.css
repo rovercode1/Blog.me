@@ -37,15 +37,16 @@ a.nav-link {
   a.nav-link:hover {
     color: #000 !important; }
 
+@media (max-width: 990px) {
+  form.main-form {
+    flex-direction: column; } }
 #showcase {
   background: url(assets/img/abstract-art-candy-desktop.png);
-  height: 760px;
+  height: 725px;
   width: 100%;
   background-position: center;
   background-size: cover;
-  background-position: 0% 61%;
-  position: relative;
-  top: -76px;
+  background-position: 0% 90%;
   display: flex;
   justify-content: center;
   align-items: center; }
@@ -92,15 +93,12 @@ section#showcase::after {
       font-size: 4.8rem; }
 
   section#showcase::after {
-    top: 506px; } }
+    top: 546px; } }
 @media (max-width: 990px) {
-  #showcase {
-    height: 481px; }
-    #showcase h1 {
-      font-size: 2.8rem; }
-
-  section#showcase::after {
-    top: 322px; } }
+  #showcase h1 {
+    position: absolute;
+    top: 264px;
+    font-size: 2.8rem; } }
 @media (max-width: 666px) {
   #showcase h1 {
     padding: 26px 22px; }
@@ -109,7 +107,7 @@ section#showcase::after {
     padding: 0px 23px;
     font-size: 2.2rem; }
   .text-field #main-text {
-    font-size: 48px !important; } }
+    font-size: 43px !important; } }
 @media (max-width: 550px) {
   #showcase {
     background-position: 50% 50%; }
