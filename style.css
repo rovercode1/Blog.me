@@ -59,6 +59,21 @@ a.nav-link {
     padding: 26px 90px;
     border-radius: 10px;
     font-size: 5.8rem; }
+  #showcase .btn {
+    background: #99969699;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 27px;
+    border: 1px solid;
+    font-weight: 500;
+    position: relative;
+    top: 86px;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: Open Sans; */
+    font-weight: 500;
+    padding: 4px 39px; }
+    #showcase .btn:hover {
+      background: #999696c9; }
 
 section#showcase::after {
   content: '';
@@ -132,7 +147,8 @@ section#showcase::after {
 #icons .col-lg-4 {
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
   #icons .col-lg-4 img {
     max-width: 200px; }
 
