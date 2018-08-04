@@ -129,4 +129,11 @@ section#showcase::after {
     line-height: 71px;
     margin: 6px; }
 
+#icons .col-lg-4 {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #icons .col-lg-4 img {
+    max-width: 200px; }
+
 /*# sourceMappingURL=style.css.map */
