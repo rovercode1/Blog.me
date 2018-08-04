@@ -33,9 +33,12 @@
   <div class="container">
     <div id='features'>
       <h3>Unlease your creativity with our Uniquie Domains, Blog Customizer and <span id='more'>much more!</span> </h3>
-      <div class="text-box">
-        <h2>Your Blog</h2>
-        <h2 id='freedom'>Your Freedom</h2>
+      <div id="feature-box">
+        <div class="text-box">
+          <h2>Your Blog</h2>
+          <h2 id='freedom'>Your Freedom</h2>
+        </div>
+          <img src="assets/img/blog.jpg" alt="">
       </div>
     </div>
   </div>
