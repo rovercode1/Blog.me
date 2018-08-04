@@ -4,7 +4,7 @@
 <section id='showcase'>
   <h1>Create your blog today!</h1>
 </section>
-<section id='why_us'>
+<section id='features'>
   <div class="container">
     <div class="text-field">
       <h1 id='main-text'>Powerful Features </h1>
