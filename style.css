@@ -86,12 +86,34 @@ section#showcase::after {
 
   section#showcase::after {
     top: 322px; } }
+@media (max-width: 666px) {
+  #showcase h1 {
+    padding: 26px 22px; }
+
+  .text-field h1 {
+    padding: 0px 23px;
+    font-size: 2.2rem; }
+  .text-field #main-text {
+    font-size: 48px !important; } }
 @media (max-width: 550px) {
   #showcase {
     background-position: 50% 50%; }
     #showcase h1 {
       padding: 26px 49px;
       font-size: 1.8rem; } }
+@media (max-width: 450px) {
+  .text-field h1, .text-field#main-text h1 {
+    font-size: 39px !important;
+    padding: 0px 27px !important; } }
+@media (max-width: 400px) {
+  #showcase h1 {
+    padding: 26px 12px;
+    font-size: 1.8rem; }
+
+  .text-field #main-text {
+    font-size: 35px !important;
+    line-height: 42px !important;
+    margin: 0px; } }
 .text-field {
   display: flex;
   justify-content: center;
