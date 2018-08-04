@@ -23,6 +23,25 @@
     border-radius: 10px;
     font-size: 5.8rem;
   }
+  .btn
+  {
+  background: #99969699;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 27px;
+  border: 1px solid;
+  font-weight: 500;
+  position: relative;
+  top: 86px;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: Open Sans; */
+  font-weight: 500;
+  padding: 4px 39px;
+  &:hover
+  {
+    background: #999696c9;
+  }
+  }
 }
 
 section#showcase::after
@@ -36,6 +55,7 @@ section#showcase::after
   background: url(assets/img/block.png);
   background-size: cover;
 }
+
 
 
 @media(max-width:1300px){
