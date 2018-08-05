@@ -1,7 +1,6 @@
 nav
 {
   z-index: 1;
-  margin-bottom: 20px;
 }
 nav.navbar.navbar-expand-lg.navbar-light.bg-light{
   background: #f8f9fa00!important;
@@ -31,4 +30,10 @@ a.nav-link
     {
       color: #000 !important;
     }
+}
+
+@media(max-width:990px){
+  form.main-form{
+    flex-direction: column;
+  }
 }

@@ -1,0 +1,153 @@
+.text-field
+{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  h1{
+    font-family: roboto;
+    background: #db9c00;
+    padding: 0px 50px;
+    color: #ffff;
+  }
+  #main-text{
+    font-size: 60px;
+    line-height: 71px;
+    margin: 6px;
+  }
+}
+
+#icons
+{
+  .col-lg-4
+  {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    img{
+      max-width: 200px;
+    }
+  }
+}
+
+#features
+{
+  background: url(assets/img/grid.png);
+  border: 1px solid #ddd;
+  padding: 30px;
+  border-radius: 6px;
+  h3
+  {
+    font-size: 2.35rem;
+  }
+  #more
+  {
+    text-decoration: underline;
+  }
+  .text-box
+  {
+    display: flex;
+    margin: 33px 0px;
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    flex-direction: column;
+    flex-direction: column;
+  }
+  h2{
+    font-size:40px ;
+    border: 3px solid #ffb600;
+    padding: 5px 10px;
+    border-radius: 8px;
+    background: #ffff;
+    color: #ffb600;
+}
+  #freedom{
+    background: #ffb600;
+    color: #fff;
+    border: 3px solid #ffb600;
+    padding: 3px 10px;
+    border-radius: 8px;
+  }
+  #feature-box
+  {
+    display: flex;
+    align-items: center;
+    margin: 44px 0px;
+    .text-box
+    {
+      flex: 1;
+    }
+    img
+    {
+      max-width: 510px;
+      flex: 1;
+      opacity: 0.8;
+      border: 1px solid #ddd;
+      border-radius: 3px;
+      width: 100%;
+    }
+  }
+}
+
+@media(max-width:990px)
+{
+  #features
+  {
+    h3
+    {
+      font-size: 1.85rem;
+    }
+    h2
+    {
+      font-size: 29px;
+    }
+    #feature-box {
+      flex-direction: column;
+        display: flex;
+        align-items: flex-start;
+        margin: 0px;
+    }
+  }
+}
+
+@media(max-width:850px)
+{
+.text-field #main-text{
+  font-size:46px ;
+}
+}
+
+
+@media(max-width:550px)
+{
+  #features
+  {
+    h3
+    {
+      font-size: 1.35rem;
+    }
+    h2
+    {
+      font-size: 1.15rem;
+    }
+  }
+}
+@media(max-width:450px)
+{
+  #features
+  {
+    h3
+    {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+@media(max-width:318px)
+{
+  section#showcase::after {
+      top: 8%;
+  }
+}

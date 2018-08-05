@@ -8,7 +8,7 @@
     <div class="container">
       <div id='signup' class="main-wrapper">
         <h2>New Blog</h2>
-        <form  action="includes/new_blog.inc.php" method="post">
+        <form  action="includes/blogs/new_blog.inc.php" method="post">
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" required>
             <!-- <label>Blog Url(optional)</label>

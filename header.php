@@ -13,7 +13,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:500" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet">
 
 </head>
 <body>
@@ -41,13 +41,13 @@
                 <li class="nav-item active">
                 <a class="nav-link" href="#">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
                 </li>
-                <form  action="includes/logout.inc.php" method="POST">
+                <form  action="includes/index/logout.inc.php" method="POST">
                   <button class="btn btn-warning"type="submit" name="submit">Log Out</button>
                 </form>
                 <?php
               }else{
                 ?>
-                <form class="main-form" action="includes/login.inc.php" method="POST">
+                <form class="main-form" action="includes/index/login.inc.php" method="POST">
                   <input class="form-control"type="text" name="uid" placeholder="Username/email">
                   <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
                   <button class="btn btn-primary"type="submit" name="submit">Sign In</button>

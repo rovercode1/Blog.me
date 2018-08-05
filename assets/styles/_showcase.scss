@@ -1,35 +1,51 @@
 #showcase
 {
   background: url(assets/img/abstract-art-candy-desktop.png);
-  height: 760px;
+  height: 725px;
   width: 100%;
   background-position: center;
   background-size: cover;
-  background-position: 0% 61%;
-  position: relative;
-  top: -76px;
+  background-position: 0% 90%;
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   h1
   {
     font-family: 'Roboto', sans-serif;
     color: #fff;
-    position: absolute;
     font-size: 100px;
-    top: 137px;
     background: #c5c5c599;
     padding: 26px 90px;
     border-radius: 10px;
     font-size: 5.8rem;
+  }
+  .btn
+  {
+  background: #99969699;
+  color: #fff;
+  border-radius: 8px;
+  font-size: 27px;
+  border: 1px solid;
+  font-weight: 500;
+  position: relative;
+  top: 86px;
+  font-family: 'Roboto', sans-serif;
+  /* font-family: Open Sans; */
+  font-weight: 500;
+  padding: 4px 39px;
+  &:hover
+  {
+    background: #999696c9;
+  }
   }
 }
 
 section#showcase::after
 {
   content: '';
-  position: absolute;
-  top: 601px;
+  position: relative;
+  top: 21%;
   width: 100%;
   height: 200px;
   background-position: center;
@@ -38,38 +54,85 @@ section#showcase::after
 }
 
 
+
 @media(max-width:1300px){
 #showcase{
   height: 670px;
+
   h1{
-    font-size: 4.8rem;
+      font-size: 4.8rem;
+    }
   }
-}
-section#showcase::after{
-    top: 506px;
+  section#showcase::after{
+    top: 20%;
   }
 }
 
 @media(max-width:990px){
   #showcase{
-    height: 481px;
     h1
     {
       font-size: 2.8rem;
     }
   }
   section#showcase::after{
-    top: 322px;
+    top: 24%;
+  }
+
+}
+@media(max-width:666px){
+  #showcase
+  {
+    h1
+    {
+      padding: 26px 22px;
+    }
+  }
+  .text-field
+  {
+    h1
+    {
+      padding:0px 23px;
+      font-size: 2.2rem;
+    }
+     #main-text
+    {
+      font-size: 43px!important;
+    }
   }
 }
 
 @media(max-width:550px){
-  #showcase{
-    background-position: 50% 50%;
-    h1
-    {
-      padding: 26px 49px;
+  #showcase {
+      height: 426px;
+      background-position: 50% 88%;
+    h1 {
+      padding: 26px 12px;
       font-size: 1.8rem;
     }
+    .btn
+    {
+      font-size: 21px;
+      top: 11%;
+    }
+  }
+  section#showcase::after
+  {
+    top:11%;
+  }
+  .text-field #main-text {
+    font-size: 35px !important;
+    line-height: 42px !important;
+    margin: 0px;
+  }
+}
+@media(max-width:450px)
+{
+  .text-field,.text-field#main-text{
+    h1{
+      font-size: 34px !important;
+      padding: 0px 27px !important;
+    }
+
   }
 }
