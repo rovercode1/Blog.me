@@ -211,6 +211,9 @@ section#showcase::after {
     display: flex;
     align-items: flex-start;
     margin: 0px; } }
+@media (max-width: 850px) {
+  .text-field #main-text {
+    font-size: 46px; } }
 @media (max-width: 550px) {
   #features h3 {
     font-size: 1.35rem; }
@@ -219,5 +222,8 @@ section#showcase::after {
 @media (max-width: 450px) {
   #features h3 {
     font-size: 1.25rem; } }
+@media (max-width: 318px) {
+  section#showcase::after {
+    top: 8%; } }
 
 /*# sourceMappingURL=style.css.map */
