@@ -14,14 +14,10 @@ if (isset($_SESSION['u_id'])) {
       // Error handlers
       // Check for empty fields
     if (empty($title) ||empty($body)) {
-        header("Location: ../../blog_form.php?signup=empty");
+        header("Location: ../../blog_form.php?field=empty");
       exit();
     }
     else{
-        // Check if input characters are vaild
-      if (!preg_match("/^[a-zA-Z*$]*$/",$first) || !preg_match("/^[a-zA-Z*$]*$/",$last)){
-        header("Location: ../../blog_form.php?blog_form=invalidChar");
-      }else{
             // Insert the user into the database
             $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date) VALUES ( '$author', '$title', '$body', '$date');";
             mysqli_query($conn, $sql);

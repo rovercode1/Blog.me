@@ -15,11 +15,11 @@ include 'includes/dbh.inc.php';
     $resultCheck = mysqli_num_rows($result);
     // If there are no results in the database...
     if ($resultCheck < 1) {
-      // header("Location: ../blogs.php?blog=error");
+        // header("Location: ../../index.php?blog=error");
+        exit();
       ?>
-      <p>Blog not found.</p>
+        <p>Blog not found.</p>
       <?php
-      exit();
     }else{
       $row = mysqli_fetch_assoc($result)
       ?>
@@ -29,6 +29,13 @@ include 'includes/dbh.inc.php';
       <p>Posted by <a href="#"> <em><?php echo $row['post_author'] ?></em></a></p>
       <p> <?php echo $row['post_date'] ?> </p>
       <a class='btn btn-primary'href="http://localhost/project-website">Back</a>
+      <?php if ($_SESSION['u_uid'] == $row['post_author']): ?>
+        <form class="" action="includes/blogs/update_blog.inc.php" method="post">
+          <button class='btn btn-danger'type="submit" name="submit">Delete</button>
+        </form>
+          <a class='btn btn-warning' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" ><p>Update</p></a>
+
+      <?php endif; ?>
     </div>
     <?php
   }

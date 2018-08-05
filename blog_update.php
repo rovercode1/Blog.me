@@ -14,19 +14,19 @@
             exit();
         }else{
           $row = mysqli_fetch_assoc($result);
-?>
+      ?>
   <section>
     <div class="container">
       <div id='signup' class="main-wrapper">
         <h2>Update blog</h2>
-        <form  action="includes/blogs/new_blog.inc.php" method="post">
+        <form  action="includes/blogs/update_blog.inc.php<?php echo '?blog='. $row['post_id']?>" method="post">
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" value="<?php echo $row['post_title'] ?> "required>
             <!-- <label>Blog Url(optional)</label>
           <input class="form-control"type="text" name="url" placeholder="Blog Url" required> -->
             <label>Blog Body</label>
           <textarea rows='10'class="form-control"type="text" name="body" placeholder="What's on your mind?" required><?php echo $row['post_body'] ?> </textarea>
-          <button class="form-control btn btn-primary"type="submit" name="submit">Post</button>
+          <button class="form-control btn btn-primary"type="submit" name="submit">Update</button>
         </form>
       </div>
     </div>
