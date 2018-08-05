@@ -17,7 +17,7 @@
           while ($row = mysqli_fetch_assoc($blogResult)) {?>
             <div class="col-lg-6 col-md-6">
               <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
-              <p> <?php echo $row['post_body'] ?> </p>
+              <p class='post_body'> <?php echo $row['post_body'] ?> </p>
               <p> <?php echo $row['post_author'] ?> </p>
               <p> <?php echo $row['post_date'] ?> </p>
             </div>
