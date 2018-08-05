@@ -10,12 +10,17 @@
         $resultCheck = mysqli_num_rows($result);
           // If there are no results in the database...
         if ($resultCheck < 1) {
-            header("Location: ../../index.php?blog=noblog");
+            header("Location: index.php?blog=noblog");
             exit();
         }else{
           $row = mysqli_fetch_assoc($result);
+          // If the current user is not the author
+           // of the blog, redirect to home page.
+          if($_SESSION['u_uid'] == $row['post_author']){
       ?>
   <section>
+    <p> <?php echo $row['post_author'] ?> </p>
+    <p> <?php echo $_SESSION['u_uid'] ?> </p>
     <div class="container">
       <div id='signup' class="main-wrapper">
         <h2>Update blog</h2>
@@ -32,7 +37,11 @@
     </div>
   </section>
 <?php
-};
-};
+} else{
+    header("Location: ../../index.php?blog=error");
+    exit();
+      };
+    };
+  };
 include 'footer.php';
  ?>
