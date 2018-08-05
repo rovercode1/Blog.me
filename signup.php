@@ -3,7 +3,7 @@
     <div class="container">
       <div class="main-wrapper">
         <h2>SignUp</h2>
-        <form id="signup" action="includes/signup.inc.php" method="post">
+        <form id="signup" action="includes/index/signup.inc.php" method="post">
             <label>First Name</label>
           <input class="form-control"type="text" name="first" placeholder="Enter first name"required>
             <label>Last Name</label>
