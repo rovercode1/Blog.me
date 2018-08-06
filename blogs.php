@@ -7,7 +7,6 @@ include 'includes/dbh.inc.php';
   $post_id = $_GET['blog'];
   // If user is logged in...
   if (isset($_SESSION['u_id'])) {
-    $fullUrl = "http://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
     // Find the blog in database
     $sql  ="SELECT * FROM blogs WHERE post_id ='$post_id'";
     // result = what is found in the database
@@ -16,7 +15,7 @@ include 'includes/dbh.inc.php';
     // If there are no results in the database...
     if ($resultCheck < 1) {
         // header("Location: ../../index.php?blog=error");
-        exit();
+        // exit();
       ?>
         <p>Blog not found.</p>
       <?php
@@ -28,14 +27,15 @@ include 'includes/dbh.inc.php';
       <p> <?php echo $row['post_body'] ?> </p>
       <p>Posted by <a href="#"> <em><?php echo $row['post_author'] ?></em></a></p>
       <p> <?php echo $row['post_date'] ?> </p>
-      <a class='btn btn-primary'href="http://localhost/project-website">Back</a>
-      <?php if ($_SESSION['u_uid'] == $row['post_author']): ?>
-        <form class="" action="includes/blogs/update_blog.inc.php" method="post">
-          <button class='btn btn-danger'type="submit" name="submit">Delete</button>
-        </form>
-          <a class='btn btn-warning' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" ><p>Update</p></a>
-
-      <?php endif; ?>
+      <div id="buttons">
+        <a class='btn btn-primary'href="http://localhost/project-website">Back</a>
+        <?php if ($_SESSION['u_uid'] == $row['post_author']): ?>
+          <form class="" action="includes/blogs/delete_blog.inc.php  <?php echo '?blog='. $row['post_id']?>" method="post">
+            <button class='btn btn-danger'type="submit" name="submit">Delete</button>
+          </form>
+          <a class='btn btn-warning' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" >Update</a>
+        <?php endif; ?>
+      </div>
     </div>
     <?php
   }

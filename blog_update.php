@@ -19,8 +19,6 @@
           if($_SESSION['u_uid'] == $row['post_author']){
       ?>
   <section>
-    <p> <?php echo $row['post_author'] ?> </p>
-    <p> <?php echo $_SESSION['u_uid'] ?> </p>
     <div class="container">
       <div id='signup' class="main-wrapper">
         <h2>Update blog</h2>
@@ -38,7 +36,7 @@
   </section>
 <?php
 } else{
-    header("Location: ../../index.php?blog=error");
+    header("Location: http://localhost/project-website/index.php?update_blog_form=error");
     exit();
       };
     };
