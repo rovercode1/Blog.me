@@ -97,3 +97,13 @@
     </div>
   </div>
 </section>
+<section id='contact-us'>
+  <div class="container">
+    <div id="contact-box">
+      <h2>Have any questions?</h2>
+      <a href="#">Contact us</a>
+      <h2>Ready to get started?</h2>
+      <a href="#">Get started!</a>
+    </div>
+  </div>
+</section>
