@@ -24,13 +24,10 @@ if (isset($_SESSION['u_id'])) {
             header("Location: ../../index.php?blog_form=success");
             exit();
           }
-        }
+      }else{
+        header("Location: ../../index.php");
+        exit();
     }
-  else
-  {
-    header("Location: ../../index.php");
-    exit();
-  }
 }else
 {
   header("Location: ../../index.php");
