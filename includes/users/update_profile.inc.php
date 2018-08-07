@@ -39,6 +39,11 @@ if (isset($_SESSION['u_id'])) {
                 // Insert the user into the database
               $sql = "UPDATE `users` SET `user_first` = '$first', `user_last` = '%last', `user_email` = '$email', `user_uid` = '$uid', `user_about` = '$about' WHERE `users`.`user_id` = $user_id;";
               mysqli_query($conn, $sql);
+              // Update the session
+              $_SESSION['u_first'] = $first;
+              $_SESSION['u_last'] = $last;
+              $_SESSION['u_email'] = $email;
+              $_SESSION['u_uid'] = $uid;
               header("Location: ../../index.php?update_profile=success");
               exit();
             }
