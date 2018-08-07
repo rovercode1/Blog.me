@@ -10,7 +10,7 @@ if (isset($_SESSION['u_id'])) {
     $author = $_SESSION["u_id"];
     $title = mysqli_real_escape_string($conn,$_POST['title']);
     $body = mysqli_real_escape_string($conn,$_POST['body']);
-    $date = date("l jS \of F Y h:i:s A");
+    $date = date("Y-m-d H:i:s");
       // Error handlers
       // Check for empty fields
     if (empty($title) ||empty($body)) {
