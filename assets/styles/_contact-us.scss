@@ -34,3 +34,12 @@
     }
   }
 }
+
+@media(max-width:490px)
+{
+#contact-us #contact-box h2
+  {
+    font-size: 2rem !important;
+    text-align: center !important;
+  }
+}

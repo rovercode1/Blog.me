@@ -39,7 +39,7 @@
               if (isset($_SESSION['u_id'])) {
                 ?>
                 <li class="nav-item active">
-                <a class="nav-link" href="#">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
+                <a class="nav-link" href="http://localhost/project-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
                 </li>
                 <form  action="includes/index/logout.inc.php" method="POST">
                   <button class="btn btn-warning"type="submit" name="submit">Log Out</button>

@@ -273,6 +273,10 @@ section#showcase::after {
       padding: 4px 39px;
       margin-bottom: 30px; }
 
+@media (max-width: 490px) {
+  #contact-us #contact-box h2 {
+    font-size: 2rem !important;
+    text-align: center !important; } }
 #buttons {
   display: flex;
   align-items: center;
@@ -285,7 +289,10 @@ section#showcase::after {
   padding: 10px;
   display: flex;
   align-items: center;
-  justify-content: center; }
+  justify-content: center;
+  position: absolute;
+  top: 100%;
+  width: 100%; }
   #footer p {
     margin: 0px; }
 
