@@ -1,12 +1,12 @@
 #footer
 {
+  position: relative;
+  top: 100%;
   background: #f6f6f6;
   padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position: absolute;
-  top: 100%;
   width: 100%;
   p
   {

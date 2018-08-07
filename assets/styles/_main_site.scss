@@ -1,8 +1,7 @@
-.col-lg-6 .col-md-6
-{
-  padding: 15px;
-
+.col-lg-6.col-md-6 {
+    padding: 5px
 }
+
 
 .blog_desc
 {
@@ -10,7 +9,6 @@
   padding: 20px;
   border-radius: 5px;
   height: 362px;
-  margin: 10px 0px;
 
 }
 
@@ -19,5 +17,16 @@
   .blog_desc
   {
     height: 100%;
+  }
+}
+
+@media(max-width:991px)
+{
+  #main-site
+  {
+    .container
+    {
+      max-width: 100%;
+    }
   }
 }
