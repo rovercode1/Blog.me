@@ -36,15 +36,15 @@ include 'includes/dbh.inc.php';
 
       <h4><?php echo $row['post_title'] ?> </h4>
       <p> <?php echo $row['post_body'] ?> </p>
-      <p>Posted by <a href="#"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+      <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
       <p> <?php echo $row['post_date'] ?> </p>
       <div id="buttons">
-        <a class='btn btn-primary'href="http://localhost/project-website">Back</a>
+        <a class='btn btn-primary btn-sm'href="http://localhost/project-website">Back</a>
         <?php if ($_SESSION['u_id'] == $row['post_author']): ?>
           <form class="" action="includes/blogs/delete_blog.inc.php  <?php echo '?blog='. $row['post_id']?>" method="post">
-            <button class='btn btn-danger'type="submit" name="submit">Delete</button>
+            <button class='btn btn-danger btn-sm'type="submit" name="submit">Delete</button>
           </form>
-          <a class='btn btn-warning' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" >Update</a>
+          <a class='btn btn-warning btn-sm' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" >Update</a>
         <?php endif; ?>
       </div>
     </div>

@@ -44,6 +44,7 @@ if (isset($_SESSION['u_id'])) {
               $_SESSION['u_last'] = $last;
               $_SESSION['u_email'] = $email;
               $_SESSION['u_uid'] = $uid;
+            
               header("Location: ../../index.php?update_profile=success");
               exit();
             }

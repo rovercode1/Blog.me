@@ -1,4 +1,4 @@
-<section>
+<section id='main-site'>
   <div class="container">
     <div class="row">
     <?php

@@ -42,7 +42,7 @@
                 <a class="nav-link" href="http://localhost/project-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
                 </li>
                 <form  action="includes/index/logout.inc.php" method="POST">
-                  <button class="btn btn-warning"type="submit" name="submit">Log Out</button>
+                  <button class="btn btn-warning btn-sm"type="submit" name="submit">Log Out</button>
                 </form>
                 <?php
               }else{
@@ -50,7 +50,7 @@
                 <form class="main-form" action="includes/index/login.inc.php" method="POST">
                   <input class="form-control"type="text" name="uid" placeholder="Username/email">
                   <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
-                  <button class="btn btn-primary"type="submit" name="submit">Sign In</button>
+                  <button class="btn btn-primary btn-sm"type="submit" name="submit">Sign In</button>
                 <a class="btn btn-warning"href="signup.php">Sign Up</a>
                 </form>
                 <?php
