@@ -13,7 +13,7 @@
           <label>Username</label>
           <input class="form-control"type="text" name="uid" placeholder="Enter username"required>
             <label>Password</label>
-          <input class="form-control"type="password" name="pwd" placeholder="First password"required>
+          <input class="form-control"type="password" name="pwd" placeholder="Password"required>
           <button class="form-control btn btn-primary"type="submit" name="submit">Sign Up</button>
         </form>
 

@@ -16,7 +16,7 @@
           $row = mysqli_fetch_assoc($result);
           // If the current user is not the author
            // of the blog, redirect to home page.
-          if($_SESSION['u_uid'] == $row['post_author']){
+          if($_SESSION['u_id'] == $row['post_author']){
       ?>
   <section>
     <div class="container">

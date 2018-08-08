@@ -7,10 +7,10 @@ if (isset($_SESSION['u_id'])) {
     // User inputs
       //  mysqli_real_escape_string =
       // escapes special characters in a string for use in an SQL statement.
-    $author = $_SESSION["u_uid"];
+    $author = $_SESSION["u_id"];
     $title = mysqli_real_escape_string($conn,$_POST['title']);
     $body = mysqli_real_escape_string($conn,$_POST['body']);
-    $date = date("l jS \of F Y h:i:s A");
+    $date = date("Y-m-d H:i:s");
       // Error handlers
       // Check for empty fields
     if (empty($title) ||empty($body)) {
@@ -24,13 +24,10 @@ if (isset($_SESSION['u_id'])) {
             header("Location: ../../index.php?blog_form=success");
             exit();
           }
-        }
+      }else{
+        header("Location: ../../index.php");
+        exit();
     }
-  else
-  {
-    header("Location: ../../index.php");
-    exit();
-  }
 }else
 {
   header("Location: ../../index.php");
