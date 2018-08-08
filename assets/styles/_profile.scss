@@ -6,7 +6,18 @@ div#user-box {
     align-items: center;
     border-radius: 10px;
     border: 4px solid #ddd;
-    padding: 20px;
+    padding: 40px;
+    #user
+    {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      i
+      {
+        font-size: 20px;
+      }
+    }
 }
 
 #user-blogs
@@ -21,11 +32,10 @@ div#user-box {
       border: 2px solid  #007bff;
   }
 }
-.buttons
-{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.buttons{
+  display:flex;
+  justify-content:center;
+  align-items:center;
 }
 
 #blog-link{
