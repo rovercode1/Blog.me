@@ -39,9 +39,9 @@ if (isset($_SESSION['u_id'])) {
 
       // The "forward" link
       $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
-
-      // Display the paging information
-      echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
+      //
+      // // Display the paging information
+      // echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
 
       // Prepare the paged query
       $stmt = $dbh->prepare('
@@ -72,6 +72,10 @@ if (isset($_SESSION['u_id'])) {
           foreach ($iterator as $row) {
               echo '<p>', $row['post_title'], '</p>';
           }
+
+                // Display the paging information
+                echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
+
 
       } else {
           echo '<p>No results could be displayed.</p>';

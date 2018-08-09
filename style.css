@@ -356,6 +356,19 @@ div#user-box {
   text-align: center;
   margin: 8px 0px; }
 
+.img {
+  border: 2px solid #999;
+  padding: 0px;
+  border-radius: 131px;
+  max-width: 97px;
+  background: #fff; }
+  .img img {
+    max-width: 100%;
+    left: 0px;
+    top: 0px;
+    z-index: -1;
+    border-radius: 97px; }
+
 #footer {
   position: relative;
   top: 100%;

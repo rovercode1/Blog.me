@@ -16,7 +16,9 @@ if (isset($_SESSION['u_id'])) {
     $row = mysqli_fetch_assoc($result);?>
     <div class="container-fluid">
       <div class='container' id="user-box">
-
+        <div class="img">
+          <img src="https://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" alt="">
+        </div>
         <div id="user">
           <h1> <em><?php echo $row['user_uid']?></em>  <?php if ($_SESSION['u_id'] == $row['user_id']): ?>
             <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
