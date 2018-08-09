@@ -308,6 +308,13 @@ div#user-box {
     justify-content: center; }
     div#user-box #user i {
       font-size: 20px; }
+  div#user-box form {
+    display: flex;
+    flex-direction: column; }
+  div#user-box #fullSettings {
+    margin: 10px; }
+  div#user-box #moreSettings {
+    margin: 10px; }
 
 #user-blogs {
   text-align: center;
@@ -335,6 +342,19 @@ div#user-box {
     color: #007bff; }
   #blog-link:hover p {
     color: #333; }
+
+#uid-edit {
+  text-align: center;
+  font-size: 43px;
+  font-weight: 500;
+  height: 100%;
+  color: #000;
+  font-style: italic; }
+
+#about-edit {
+  font-weight: 500;
+  text-align: center;
+  margin: 8px 0px; }
 
 #footer {
   position: relative;
