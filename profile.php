@@ -16,16 +16,13 @@ if (isset($_SESSION['u_id'])) {
     $row = mysqli_fetch_assoc($result);?>
     <div class="container-fluid">
       <div class='container' id="user-box">
-        <h1> <em><?php echo $row['user_uid']?></em></h1>
-        <h6> <?php echo $row['user_about'] ?> </h6>
-        <?php if ($_SESSION['u_id'] == $row['user_id']): ?>
-          <div class="buttons">
-            <form class="" action="includes/user/delete_profile.inc.php  <?php echo '?user='. $row['user_id']?>" method="post">
-              <button class='btn btn-danger btn-sm'type="submit" name="submit">Delete</button>
-            </form>
-            <a class='btn btn-warning btn-sm' href="user_update.php <?php echo '?user='. $row['user_id']?>" >Update</a>
-          </div>
-        <?php endif; ?>
+
+        <div id="user">
+          <h1> <em><?php echo $row['user_uid']?></em>  <?php if ($_SESSION['u_id'] == $row['user_id']): ?>
+            <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
+          <?php endif; ?></h1>
+          <h6> <?php echo $row['user_about'] ?> </h6>
+        </div>
       </div>
       <?php
         // Find the blog in database

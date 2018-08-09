@@ -12,7 +12,7 @@ if (isset($_SESSION['u_id'])) {
       ')->fetchColumn();
 
       // How many items to list per page
-      $limit = 2;
+      $limit = 4;
 
       // How many pages will there be
         // celi = Round fractions up
