@@ -18,7 +18,15 @@ if (isset($_SESSION['u_id'])) {
 <section>
   <div class="container-fluid">
     <div class='container' id="user-box">
+      <form enctype="multipart/form-data" action="includes/index/uploads.inc.php" method="POST">
+        <input type="hidden" name="MAX_FILE_SIZE" value="512000" />
+          Send this file: <input name="userfile" type="file" />
+        <input type="submit" value="Send File" />
+      </form>
       <form class="" action="includes/users/update_profile.inc.php" method="post">
+        <!-- <div class="img">
+          <img src="https://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" alt="">
+        </div> -->
         <input id='uid-edit'class='form-control'type="text" name="uid" value="<?php echo $row['user_uid']?>">
         <input type="text" id='about-edit' class='form-control'name="about" value="<?php echo $row['user_about'] ?>">
         <div class="collapse" id="moreSettings">

@@ -70,7 +70,12 @@ if (isset($_SESSION['u_id'])) {
 
           // Display the results
           foreach ($iterator as $row) {
-              echo '<p>', $row['post_title'], '</p>';
+            ?>
+            <a href="blogs.php <?php echo '?blog='. $row['post_id']?>">
+              <p> <?php echo $row['post_title'] ?></p>
+            </a>
+            <?php
+              // echo '<p>', $row['post_title'], '</p>';
           }
 
                 // Display the paging information
