@@ -33,14 +33,29 @@
             <li class="nav-item active">
               <a class="nav-link" href="blog_form.php">Post New Blog</a>
             </li>
-          <?php } ?>
+          <?php }?>
           </ul>
 
           <ul class="navbar-nav ml-auto">
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logginModal">
-              Loggin/Signup
-            </button>
+            <?php
+            if (isset($_SESSION['u_id'])) {
+              ?>
+              <li class="nav-item active">
+                <a class="nav-link" href="http://localhost/project-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
+              </li>
+              <form  action="includes/index/logout.inc.php" method="POST">
+                <button class="btn btn-warning btn-sm"type="submit" name="submit">Log Out</button>
+              </form>
+                <?php
+              }
+              else{
+                ?>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logginModal">
+                  Loggin/Signup
+                </button>
+                <?php
+              }?>
           </ul>
         </div>
       </div>

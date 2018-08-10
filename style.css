@@ -276,7 +276,7 @@ section#showcase::after {
       font-size: 3rem;
       padding: 9px 10px;
       border-radius: 8px; }
-    #contact-us #contact-box a {
+    #contact-us #contact-box a, #contact-us #contact-box button {
       background: #ffffff99;
       color: #000;
       border-radius: 8px;
