@@ -1,8 +1,9 @@
 <section id='main-site'>
   <div class="container">
     <h1>Main Page</h1>
-    <div id="content">
-      <div class="row">
+    <!-- <div id="content"> -->
+      <div class="row" id='content'>
+        <div class="col-lg-8 md-8">
         <?php
         if (isset($_SESSION['u_id'])) {
           $fullUrl = "http://$_SERVER[HTTP_HOST]";
@@ -29,7 +30,7 @@
               }else{
                 $Userrow = mysqli_fetch_assoc($Userresult);
                 ?>
-                <div class="col-lg-8 col-md-8">
+                <div class="col-lg-12 col-md-12">
                   <div class="blog_desc">
                     <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
                     <p class='post_body'> <?php echo $row['post_body'] ?></p>
@@ -40,13 +41,14 @@
               <?php }
             }
             ?>
-        </div>
-        <div class="row">
-          <div class="col-lg-4 col-md-4">
-            <h1>Sidebar</h1>
           </div>
+          <div class="col-lg-4 col-md-4">
+            <div class="col-lg-12">
+              <h1>Sidebar</h1>
+            </div>
         </div>
       </div>
+      <!-- </div> -->
     <?php }
     }
   ?>
