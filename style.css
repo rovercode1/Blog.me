@@ -231,6 +231,26 @@ section#showcase::after {
 @media (max-width: 318px) {
   section#showcase::after {
     top: 8%; } }
+#featured {
+  height: auto; }
+
+header {
+  display: flex !important;
+  justify-content: center; }
+  header h1 {
+    font-size: 2.9rem;
+    display: inline;
+    border-bottom: 3px solid red;
+    padding: 0px 20px; }
+
+#featured-box {
+  padding: 10px; }
+
+.nav-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
 #content {
   display: flex;
   flex-direction: row; }
