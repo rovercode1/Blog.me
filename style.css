@@ -232,11 +232,18 @@ section#showcase::after {
   section#showcase::after {
     top: 8%; } }
 #featured {
-  height: auto; }
+  height: auto;
+  box-shadow: none;
+  margin: 20px 0px; }
 
 header {
   display: flex !important;
-  justify-content: center; }
+  justify-content: center;
+  background: #dddddd3b;
+  padding: 20px 50px;
+  border: 1px solid #c0c0c0;
+  border-radius: 4px;
+  margin: 10px 0px; }
   header h1 {
     font-size: 2.9rem;
     display: inline;
@@ -265,7 +272,8 @@ header {
   height: 260px;
   background: #fff;
   margin: 2px 0px;
-  box-shadow: 2px 2px 10px #999; }
+  box-shadow: 2px 2px 10px #999;
+  margin: 10px 0px; }
 
 @media (max-width: 768px) {
   .blog_desc {
@@ -318,6 +326,9 @@ header {
   justify-content: flex-start; }
   #buttons form, #buttons a {
     margin-right: 10px; }
+
+#post_body {
+  white-space: pre-wrap; }
 
 div#user-box {
   margin-bottom: 30px;

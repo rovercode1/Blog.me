@@ -5,6 +5,8 @@ if (isset($_SESSION['u_id'])) {
   if (isset($_POST['submit'])) {
     include_once '../dbh.inc.php';
     // User inputs
+    $file = $_FILES['file'];
+    $name = $file['user_av'];
     $user_id = $_SESSION['u_id'];
     $first = mysqli_real_escape_string($conn,$_POST['first']);
     $last = mysqli_real_escape_string($conn,$_POST['last']);
@@ -26,6 +28,12 @@ if (isset($_SESSION['u_id'])) {
             header("Location: ../../update_profile.php?user=invalidemail");
                 exit();
           }else{
+            $path = "/uploads/" . basename($name);
+            if (move_uploaded_file($file['tmp_name'], $path)) {
+              $sql = "INSERT INTO users (user_av) VALUES ('" . mysqli_real_escape_string($path) . "')";
+            } else {
+              echo "error";
+            }
             $sql = "SELECT * FROM users WHERE user_uid = $user_uid";
             $result = mysqli_query($conn, $sql);
               // Check if there is a user that matches the uid
@@ -37,7 +45,7 @@ if (isset($_SESSION['u_id'])) {
               exit();
             }else{
                 // Insert the user into the database
-              $sql = "UPDATE `users` SET `user_first` = '$first', `user_last` = '$last', `user_email` = '$email', `user_uid` = '$uid', `user_about` = '$about' WHERE `users`.`user_id` = $user_id;";
+              $sql = "UPDATE `users` SET `user_first` = '$first', `user_last` = '$last', `user_email` = '$email', `user_uid` = '$uid', `user_about`, `user_av` = `hello` = '$about' WHERE `users`.`user_id` = $user_id;";
               mysqli_query($conn, $sql);
               // Update the session
               $_SESSION['u_first'] = $first;

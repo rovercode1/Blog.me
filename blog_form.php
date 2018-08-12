@@ -11,10 +11,12 @@
         <form  action="includes/blogs/new_blog.inc.php" method="post">
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" required>
+            <label>Category</label>
+          <input class="form-control"type="text" name="category" placeholder="Blog Category" required>
             <!-- <label>Blog Url(optional)</label>
           <input class="form-control"type="text" name="url" placeholder="Blog Url" required> -->
             <label>Blog Body</label>
-          <textarea rows='10'class="form-control"type="text" name="body" placeholder="What's on your mind?" required></textarea>
+          <textarea rows='20'class="form-control"type="text" name="body" placeholder="What's on your mind?" required></textarea>
           <button class="form-control btn btn-primary"type="submit" name="submit">Post</button>
         </form>
       </div>

@@ -10,6 +10,7 @@ if (isset($_SESSION['u_id'])) {
     $author = $_SESSION["u_id"];
     $title = mysqli_real_escape_string($conn,$_POST['title']);
     $body = mysqli_real_escape_string($conn,$_POST['body']);
+    $category = mysqli_real_escape_string($conn,$_POST['category']);
     $date = date("Y-m-d H:i:s");
       // Error handlers
       // Check for empty fields
@@ -19,7 +20,7 @@ if (isset($_SESSION['u_id'])) {
     }
     else{
             // Insert the user into the database
-            $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date) VALUES ( '$author', '$title', '$body', '$date');";
+            $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date, category) VALUES ( '$author', '$title', '$body', '$date','$category');";
             mysqli_query($conn, $sql);
             header("Location: ../../index.php?blog_form=success");
             exit();

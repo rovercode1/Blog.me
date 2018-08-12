@@ -10,6 +10,7 @@ if (isset($_SESSION['u_id'])) {
     $post_id = $_GET['blog'];
     $title = mysqli_real_escape_string($conn,$_POST['title']);
     $body = mysqli_real_escape_string($conn,$_POST['body']);
+    $category = mysqli_real_escape_string($conn,$_POST['category']);
       // Error handlers
       // Check for empty fields
     if (empty($title) ||empty($body)) {
@@ -18,7 +19,7 @@ if (isset($_SESSION['u_id'])) {
     }
     else{
         // Insert the user into the database
-        $sql = "UPDATE `blogs` SET `post_title` = '$title', `post_body` = '$body' WHERE `blogs`.`post_id` = $post_id;";
+        $sql = "UPDATE `blogs` SET `post_title` = '$title', `post_body` = '$body', `category` = '$category' WHERE `blogs`.`post_id` = $post_id;";
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
           header("Location: ../../index.php?update_blog_form=success");
           exit();
