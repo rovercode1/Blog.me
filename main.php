@@ -1,15 +1,16 @@
 <section id='main-site'>
   <div class="container">
     <!-- <div id="content"> -->
+
     <header>
-      <h1>Featured Articles</h1>
+      <h1>Top Stories</h1>
     </header>
       <div id='featured'>
         <div class="blog_desc" id='featured'>
           <div class="row">
             <div class="col-lg-12">
               <div id="featured-box">
-                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link active" id="f1-tab" data-toggle="tab" href="#f1" role="tab" aria-controls="f1" aria-selected="true">Featured Post</a>
                   </li>
@@ -33,7 +34,7 @@
                     <h2>Title 3</h2>
                     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
                   </div>
-                </div>
+                </div> -->
               </div>
             </div>
           </div>
@@ -81,13 +82,9 @@
           </div>
           <div class="col-lg-4 col-md-4">
             <div class="col-lg-12">
-              <h1>Sidebar</h1>
+              <h1>To The Point</h1>
+
+                <?php }
+              }?>
             </div>
-        </div>
-      </div>
-      <!-- </div> -->
-    <?php }
-    }
-  ?>
-  </div>
-</section>
+          </section>
