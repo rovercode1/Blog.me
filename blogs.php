@@ -35,6 +35,7 @@ include 'includes/dbh.inc.php';
       ?>
 
       <h4><?php echo $row['post_title'] ?> </h4>
+      <img src="uploads/blogs/<?php echo $row['post_image'] ?> " alt="">
       <p id='post_body'> <?php echo $row['post_body'] ?> </p>
       <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
       <p> <?php echo $row['post_date'] ?> </p>

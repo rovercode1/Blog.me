@@ -4,6 +4,7 @@ session_start();
 if (isset($_SESSION['u_id'])) {
   if (isset($_POST['submit'])) {
     include_once '../dbh.inc.php';
+    extract($_POST);
     // User inputs
       //  mysqli_real_escape_string =
       // escapes special characters in a string for use in an SQL statement.
@@ -19,11 +20,18 @@ if (isset($_SESSION['u_id'])) {
       exit();
     }
     else{
+      $UploadedFileName=$_FILES['UploadImage']['name'];
+      if($UploadedFileName!=''){
+        $upload_directory = "../../uploads/blogs/";
+        $TargetPath=time().$UploadedFileName;
+        if(move_uploaded_file($_FILES['UploadImage']['tmp_name'], $upload_directory.$TargetPath)){
             // Insert the user into the database
-            $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date, category) VALUES ( '$author', '$title', '$body', '$date','$category');";
+            $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date, category, post_image) VALUES ( '$author', '$title', '$body', '$date','$category','$TargetPath');";
             mysqli_query($conn, $sql);
             header("Location: ../../index.php?blog_form=success");
             exit();
+              }
+            }
           }
       }else{
         header("Location: ../../index.php");
