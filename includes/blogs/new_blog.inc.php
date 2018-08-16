@@ -33,48 +33,47 @@ if (isset($_SESSION['u_id'])) {
 
     $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date, category) VALUES ( '$author', '$title', '$body', '$date','$category');";
     mysqli_query($conn, $sql);
-
     $blog  ="SELECT * FROM blogs WHERE post_date ='$date' AND post_author ='$author' AND post_title = '$title' AND post_body = '$body' AND category = '$category'";
     // result = what is found in the database
     $resultBlog = mysqli_query($conn, $blog);
     $resultCheckBlog = mysqli_num_rows($resultBlog);
     // If there are no results in the database...
     if ($resultCheckBlog < 1) {
-      header("Location: ../../index.php?login=error");
+      header("Location: ../../index.php?blog_form=error");
       exit();
     }else{
       if ($row = mysqli_fetch_assoc($resultBlog)) {
-        $id = $row['post_id'];
-        if (in_array($fileActualExt, $allowed)) {
-          if ($fileError === 0) {
-            if ($fileSize < 1000000) {
-              $fileNameNew = $id ."_" . uniqid('',true)."."."$fileActualExt";
-              $fileDestination = '../../uploads/blogs/'.$fileNameNew;
-              move_uploaded_file($fileTmpName, $fileDestination);
-              $img = "UPDATE `blogs` SET `post_image` = '$fileNameNew' WHERE `blogs`.`post_id` = $id;";
-              mysqli_query($conn, $img);
-              header("Location: ../../index.php?blog_form=success");
-              exit();
-              }
-            }else{
-              echo "Your file is too big";
-            }
-          }else {
-              header("Location: ../../index.php?blog_form=success");
-              exit();
+          $id = $row['post_id'];
+          if ($fileSize === 0) {
+            header("Location: ../../index.php?blog_form=success");
+            exit();
+          }else{
+            if (in_array($fileActualExt, $allowed)) {
+              if ($fileError === 0) {
+                if ($fileSize < 1000000) {
+                  $fileNameNew = $id ."_" . uniqid('',true)."."."$fileActualExt";
+                  $fileDestination = '../../uploads/blogs/'.$fileNameNew;
+                  move_uploaded_file($fileTmpName, $fileDestination);
+                  $img = "UPDATE `blogs` SET `post_image` = '$fileNameNew' WHERE `blogs`.`post_id` = $id;";
+                  mysqli_query($conn, $img);
+                  header("Location: ../../index.php?blog_form=success");
+                  exit();
+                }else{
+                  echo "Your file is too big";}
+                }else{
+                  echo "Error";}
+                }else {
+                  echo 'You cannot upload files of this type.';}
           }
         }else {
-          echo 'You cannot upload files of this type.';
+          echo 'error';}
         }
       }
-    }
-  }
-    else{
-      header("Location: ../../index.php");
+    }else{
+      header("Location: ../../index.php?");
       exit();}
-  }else
-  {
-    header("Location: ../../index.php");
+  }else{
+    header("Location: ../../index.php?");
     exit();
   }
 // {
