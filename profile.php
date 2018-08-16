@@ -23,7 +23,7 @@ if (isset($_SESSION['u_id'])) {
           <h1> <em><?php echo $row['user_uid']?></em>  <?php if ($_SESSION['u_id'] == $row['user_id']): ?>
             <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
           <?php endif; ?></h1>
-          <h6> <?php echo $row['user_about'] ?> </h6>
+          <p> <?php echo $row['user_about'] ?> </p>
         </div>
       </div>
       <?php
@@ -69,10 +69,12 @@ if (isset($_SESSION['u_id'])) {
                 <p>Blog not found.</p>
               <?php
             }else{
+              ?>
+                <div class="container" id='blog-box'>
+              <?php
 
           while ($row = mysqli_fetch_assoc($Blogresult)) {
             ?>
-            <div class="container">
               <div class="row">
                 <div class="col-lg-12">
                   <a id='blog-link' href="blogs.php <?php echo '?blog='. $row['post_id']?>">
@@ -83,9 +85,12 @@ if (isset($_SESSION['u_id'])) {
                   </a>
                 </div>
               </div>
-            </div>
             <?php
+
           }
+          ?>
+            </div>
+          <?php
           echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ',
           $nextlink, ' </p></div>';
         }

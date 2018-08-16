@@ -47,14 +47,15 @@ header
 
 .blog_desc
 {
-  border: 1px solid #ddd;
-  padding: 20px;
-  border-radius: 5px;
-  height: 260px;
+  border-bottom: 1px solid #7a7a7a;
   background: #fff;
   margin: 2px 0px;
-  box-shadow: 2px 2px 10px #999;
   margin: 10px 0px;
+  h4
+  {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+  }
 }
 
 @media(max-width:768px)
