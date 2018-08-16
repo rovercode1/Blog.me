@@ -358,14 +358,14 @@ div#user-box {
     margin: 10px; }
 
 #user-blogs {
-  text-align: center;
-  border: 2px solid #7492b2;
+  border: 1px solid #a3a3a3;
   padding: 20px;
   margin-top: 20px;
   padding-top: 5px;
-  border-radius: 3px; }
+  border-radius: 3px;
+  background: #fff; }
   #user-blogs:hover {
-    border: 2px solid  #007bff; }
+    border: 1px solid  #333; }
 
 .buttons {
   display: flex;
@@ -373,16 +373,16 @@ div#user-box {
   align-items: center; }
 
 #blog-link h4 {
-  color: #7492b2; }
+  color: #383838; }
 #blog-link p {
   color: #878787; }
 #blog-link:hover {
   text-decoration: none;
   text-transform: none; }
   #blog-link:hover h4 {
-    color: #007bff; }
+    color: #000000; }
   #blog-link:hover p {
-    color: #333; }
+    color: #000000; }
 
 #uid-edit {
   text-align: center;
@@ -411,6 +411,26 @@ div#user-box {
     z-index: -1;
     border-radius: 97px; }
 
+#paging {
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  align-items: center; }
+
+div#paging span, div#paging a {
+  background: #3f3f3f61;
+  font-size: 30px;
+  color: #fff;
+  padding: 0px 17px;
+  margin: 0px 1px; }
+
+.container {
+  max-width: 100%; }
+
+@media (max-width: 1200px) {
+  #blog-box, #user-box {
+    padding: 0px;
+    max-width: 100%; } }
 #footer {
   position: relative;
   top: 100%;

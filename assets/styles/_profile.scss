@@ -39,14 +39,14 @@ div#user-box {
 
 #user-blogs
 {
-  text-align: center;
-  border: 2px solid #7492b2;
+  border: 1px solid #a3a3a3;
   padding: 20px;
   margin-top: 20px;
   padding-top: 5px;
   border-radius: 3px;
+  background: #fff;
   &:hover{
-      border: 2px solid  #007bff;
+      border: 1px solid  #333;
   }
 }
 .buttons{
@@ -57,7 +57,7 @@ div#user-box {
 
 #blog-link{
   h4{
-    color:#7492b2;
+    color:#383838;
   }
   p
   {
@@ -68,11 +68,11 @@ div#user-box {
     text-transform: none;
     h4
     {
-      color: #007bff;
+      color: #000000;
     }
     p
     {
-      color: #333;
+      color:#000000;
     }
   }
 }
@@ -112,3 +112,32 @@ div#user-box {
 
   }
 }
+
+#paging
+{
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  align-items: center;
+}
+
+div#paging span, div#paging a {
+    background: #3f3f3f61;
+    font-size: 30px;
+    color: #fff;
+    padding: 0px 17px;
+    margin: 0px 1px;
+  }
+.container
+{
+
+  max-width: 100%;
+}
+  @media(max-width:1200px)
+  {
+    #blog-box, #user-box
+    {
+      padding: 0px;
+      max-width: 100%;
+    }
+  }

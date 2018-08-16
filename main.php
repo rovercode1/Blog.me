@@ -10,38 +10,82 @@
           <div class="row">
             <div class="col-lg-12">
               <div id="featured-box">
-                <!-- <ul class="nav nav-tabs" id="myTab" role="tablist">
-                  <li class="nav-item">
-                    <a class="nav-link active" id="f1-tab" data-toggle="tab" href="#f1" role="tab" aria-controls="f1" aria-selected="true">Featured Post</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="f2-tab" data-toggle="tab" href="#f2" role="tab" aria-controls="f2" aria-selected="false">Featured Post</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" id="f3-tab" data-toggle="tab" href="#f3" role="tab" aria-controls="f3" aria-selected="false">Featured Post</a>
-                  </li>
-                </ul>
-                <div class="tab-content" id="myTabContent">
-                  <div class="tab-pane fade show active" id="f1" role="tabpanel" aria-labelledby="f1-tab">
-                    <h2>Title 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                  <div class="tab-pane fade" id="f2" role="tabpanel" aria-labelledby="f2-tab">
-                    <h2>Title 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                  <div class="tab-pane fade" id="f3" role="tabpanel" aria-labelledby="f3-tab">
-                    <h2>Title 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                  </div>
-                </div> -->
+                <ul class="nav nav-tabs" id="myTab" role="tablist">
+                  <?php $count = 0;
+                  $active = 'active show';
+                  $id = 'f';
+                  $sql = "SELECT * FROM blogs";
+                  $result = mysqli_query($conn, $sql);
+                  $total = mysqli_num_rows($result);
+                  if ($total < 1) {?>
+                    <p>Blog not found.</p>
+                  <?php }
+                  else{
+                    $limit = 3;
+                    $offset = $total + 1 - $limit;
+                    $blogs ="SELECT * FROM blogs ";
+                    $Blogresult = mysqli_query($conn, $blogs);
+                    $Blogtotal = mysqli_num_rows($Blogresult);
+                    if ($Blogtotal < 1) {?>
+                      <p>Blog(s) not found.</p>
+                    <?php }
+                    else{
+                      while ($row = mysqli_fetch_assoc($Blogresult)) {
+                        $count = $count + 1;
+                      ?>
+                      <li class="nav-item">
+                        <a class="nav-link <?php echo $active ?>" id="<?php echo $id.$count.'-tab' ?>" data-toggle="tab" href="<?php echo '#'.$id.$count ?>" role="tab" aria-controls="<?php echo $id.$count ?>" aria-selected="true">Featured Post</a>
+                      </li>
+                      <?php
+                        $active = '';
+                      }
+                      ?>
+                        </ul>
+                      <?php
+                    }
+                  }
+                $count = 0;
+                $activeTab = 'active show';
+                $id = 'f';
+                $sql = "SELECT * FROM blogs";
+                $result = mysqli_query($conn, $sql);
+                $total = mysqli_num_rows($result);
+                if ($total < 1) {?>
+                  <p>Blog not found.</p>
+                <?php }
+                else{
+                $limit = 3;
+                $offset = $total + 1 - $limit;
+                $blogs ="SELECT * FROM blogs ";
+                $Blogresult = mysqli_query($conn, $blogs);
+                $Blogtotal = mysqli_num_rows($Blogresult);
+                if ($Blogtotal < 1) {?>
+                  <p>Blog(s) not found.</p>
+                <?php }
+                else{
+                  ?>
+                  <div class="tab-content" id="myTabContent">
+                  <?php while ($row = mysqli_fetch_assoc($Blogresult)) {
+                    $count = $count + 1; ?>
+                    <div class="tab-pane fade <?php echo $activeTab ?>" id="<?php echo $id.$count ?>" role="tabpanel" aria-labelledby="<?php echo $id.$count.'-tab' ?>">
+                      <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h2><?php echo $row['post_title'] ?> </h2></a>
+                      <p class='featured_body'> <?php echo $row['post_body'] ?> </p>
+                    </div>
+                    <?php
+                        $activeTab = '';} ?>
+                    </div>
+                  <?php }
+                }
+              ?>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
+
       <div class="row" id='content'>
         <div class="col-lg-8 md-8">
+          <h3>Recent Blogs</h3>
         <?php
         if (isset($_SESSION['u_id'])) {
           $fullUrl = "http://$_SERVER[HTTP_HOST]";
@@ -73,7 +117,6 @@
                     <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
                     <p class='post_body'> <?php echo $row['post_body'] ?></p>
                     <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
-                    <p><?php echo $row['post_date'] ?></p>
                   </div>
                 </div>
               <?php }
@@ -88,3 +131,6 @@
               }?>
             </div>
           </section>
+      </div>
+    </div>
+  </div>
