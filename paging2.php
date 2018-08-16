@@ -1,7 +1,8 @@
 <?php include 'header.php';
 // If user is signed in
 if (isset($_SESSION['u_id'])) {
-    $sql  ="SELECT * FROM blogs WHERE category ='Politics'";
+  $user_id = $_GET['user'];
+    $sql = "SELECT * FROM blogs WHERE `post_author` = $user_id";
     // result = what is found in the database
     $result = mysqli_query($conn, $sql);
     $total = mysqli_num_rows($result);
@@ -29,13 +30,12 @@ if (isset($_SESSION['u_id'])) {
           //returns the lowest value in that array
         $end = min(($offset + $limit), $total);
         // The "back" link
-        $prevlink = ($page > 1) ? '<a href="?page=1" title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
+        $prevlink = ($page > 1) ? '<a href="?page=1&user=' .$user_id. 'title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
         // The "forward" link
-        $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) . '" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+        $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1) .'&user='. $user_id.'" title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
 
-
-        $blogs ="SELECT * FROM blogs WHERE category ='Politics' LIMIT $limit OFFSET $offset";
+        $blogs ="SELECT * FROM blogs WHERE `post_author` = $user_id LIMIT $limit OFFSET $offset";
         $Blogresult = mysqli_query($conn, $blogs);
         $Blogtotal = mysqli_num_rows($Blogresult);
         // If there are no results in the database...
@@ -51,7 +51,6 @@ if (isset($_SESSION['u_id'])) {
           <p> <?php echo $row['category'] ?> </p>
         <?php
       }
-      // Display the paging information
       echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ',
       $nextlink, ' </p></div>';
     }
