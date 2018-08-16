@@ -46,6 +46,9 @@ if (isset($_SESSION['u_id'])) {
               if (in_array($fileActualExt, $allowed)) {
                 if ($fileError === 0) {
                   if ($fileSize < 1000000) {
+
+                    unlink('../../uploads/blogs/'.$row['post_image']);
+
                     $fileNameNew = $id ."_" . uniqid('',true)."."."$fileActualExt";
                     $fileDestination = '../../uploads/blogs/'.$fileNameNew;
                     move_uploaded_file($fileTmpName, $fileDestination);
