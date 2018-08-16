@@ -22,13 +22,17 @@
     <div class="container">
       <div id='signup' class="main-wrapper">
         <h2>Update blog</h2>
-        <form  action="includes/blogs/update_blog.inc.php<?php echo '?blog='. $row['post_id']?>" method="post">
+        <form  action="includes/blogs/update_blog.inc.php<?php echo '?blog='. $row['post_id']?>" method="post" enctype="multipart/form-data">
+            <label>Image (Optional)</label>
+            <div class="">
+              <input type='file' name='Image'>
+            </div>
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" value="<?php echo $row['post_title'] ?> "required>
             <label>Category</label>
           <input class="form-control"type="text" name="category" placeholder="Blog Category" value="<?php echo $row['category'] ?> "required>
             <label>Blog Body</label>
-          <textarea rows='10'class="form-control"type="text" name="body" placeholder="What's on your mind?" required><?php echo $row['post_body'] ?> </textarea>
+          <textarea rows='15'class="form-control"type="text" name="body" placeholder="What's on your mind?" required><?php echo $row['post_body'] ?> </textarea>
           <button class="form-control btn btn-primary"type="submit" name="submit">Update</button>
         </form>
       </div>

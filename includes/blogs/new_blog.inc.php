@@ -29,7 +29,7 @@ if (isset($_SESSION['u_id'])) {
     $fileExt = explode('.',$fileName);
     $fileActualExt = strtolower(end($fileExt));
 
-    $allowed = array('jpg','jpeg','png','gif');
+    $allowed = array('jpg','jpeg','png','gif','bmp');
 
     $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date, category) VALUES ( '$author', '$title', '$body', '$date','$category');";
     mysqli_query($conn, $sql);
@@ -60,7 +60,8 @@ if (isset($_SESSION['u_id'])) {
               echo "Your file is too big";
             }
           }else {
-            echo "There was an error uploading your file";
+              header("Location: ../../index.php?blog_form=success");
+              exit();
           }
         }else {
           echo 'You cannot upload files of this type.';
@@ -76,50 +77,6 @@ if (isset($_SESSION['u_id'])) {
     header("Location: ../../index.php");
     exit();
   }
-
-//
-// session_start();
-// // If submit button has been clicked...
-// if (isset($_SESSION['u_id'])) {
-//   if (isset($_POST['submit'])) {
-//     include_once '../dbh.inc.php';
-//     // User inputs
-//       //  mysqli_real_escape_string =
-//       // escapes special characters in a string for use in an SQL statement.
-//     $author = $_SESSION["u_id"];
-//     $title = mysqli_real_escape_string($conn,$_POST['title']);
-//     $body = mysqli_real_escape_string($conn,$_POST['body']);
-//     $date = date("Y-m-d H:i:s");
-//       // Error handlers
-//       // Check for empty fields
-//     if (empty($title) ||empty($body)) {
-//         header("Location: ../../blog_form.php?field=empty");
-//       exit();
-//     }
-//     else{
-//       $file = $_FILES['UploadImage'];
-//       $fileName = $_FILES['UploadImage']['name'];
-//       $fileTmpName = $_FILES['UploadImage']['tmp_name'];
-//       $fileSize = $_FILES['UploadImage']['size'];
-//       $fileError = $_FILES['UploadImage']['error'];
-//       $fileType = $_FILES['UploadImage']['type'];
-//
-//       $fileExt = explode('.',$fileName);
-//       $fileActualExt = strtolower(end($fileExt));
-//
-//       $allowed = array('jpg','jpeg','png','gif');
-//
-//             // Insert the user into the database
-//             $sql = "INSERT INTO blogs (post_author, post_title, post_body, post_date) VALUES ( '$author', '$title', '$body', '$date');";
-//             mysqli_query($conn, $sql);
-//             header("Location: ../../index.php?blog_form=success");
-//             exit();
-//           }
-//       }else{
-//         header("Location: ../../index.php");
-//         exit();
-//     }
-// }else
 // {
 //   header("Location: ../../index.php");
 //   exit();
