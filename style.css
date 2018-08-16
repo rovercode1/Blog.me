@@ -30,6 +30,22 @@ a.btn.btn-warning.btn-sm {
   margin-bottom: 30px;
   font-family: Roboto, sans-serif; }
 
+#post_date {
+  background: #2d6f9d;
+  color: #fff;
+  display: inline;
+  font-weight: 500;
+  padding: 0px 13px; }
+
+#post_author {
+  background: #000000;
+  color: #fff;
+  font-weight: 500;
+  padding: 0px 13px;
+  margin-bottom: 5px; }
+  #post_author a {
+    color: #fff; }
+
 nav {
   z-index: 1;
   border-bottom: 1px solid #ddd; }
@@ -245,16 +261,16 @@ section#showcase::after {
 header {
   display: flex !important;
   justify-content: center;
-  background: #dddddd3b;
   padding: 20px 50px;
-  border: 1px solid #c0c0c0;
-  border-radius: 4px;
-  margin: 10px 0px; }
+  border-top: 1px solid #000000;
+  margin: 0px;
+  padding-top: 30px; }
   header h1 {
     font-size: 2.9rem;
     display: inline;
     border-bottom: 3px solid red;
-    padding: 0px 20px; }
+    padding: 0px 20px;
+    margin: 0px; }
 
 #featured-box {
   padding: 10px; }
