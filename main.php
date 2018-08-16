@@ -2,19 +2,19 @@
   <div class="container">
     <!-- <div id="content"> -->
 
-    <header>
-      <h1>Top Stories</h1>
-    </header>
       <div id='featured'>
         <div class="blog_desc" id='featured'>
           <div class="row">
             <div class="col-lg-12">
+              <header>
+                <h1 class='main-header'>Top Stories</h1>
+              </header>
               <div id="featured-box">
                 <ul class="nav nav-tabs" id="myTab" role="tablist">
                   <?php $count = 0;
                   $active = 'active show';
                   $id = 'f';
-                  $sql = "SELECT * FROM blogs";
+                  $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
                   $result = mysqli_query($conn, $sql);
                   $total = mysqli_num_rows($result);
                   if ($total < 1) {?>
@@ -23,7 +23,7 @@
                   else{
                     $limit = 3;
                     $offset = $total + 1 - $limit;
-                    $blogs ="SELECT * FROM blogs ";
+                    $blogs ="SELECT * FROM blogs WHERE category = 'Featured'";
                     $Blogresult = mysqli_query($conn, $blogs);
                     $Blogtotal = mysqli_num_rows($Blogresult);
                     if ($Blogtotal < 1) {?>
@@ -47,7 +47,7 @@
                 $count = 0;
                 $activeTab = 'active show';
                 $id = 'f';
-                $sql = "SELECT * FROM blogs";
+                $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
                 $result = mysqli_query($conn, $sql);
                 $total = mysqli_num_rows($result);
                 if ($total < 1) {?>
@@ -56,7 +56,7 @@
                 else{
                 $limit = 3;
                 $offset = $total + 1 - $limit;
-                $blogs ="SELECT * FROM blogs ";
+                $blogs ="SELECT * FROM blogs WHERE category = 'Featured' ";
                 $Blogresult = mysqli_query($conn, $blogs);
                 $Blogtotal = mysqli_num_rows($Blogresult);
                 if ($Blogtotal < 1) {?>
