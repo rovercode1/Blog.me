@@ -19,6 +19,9 @@ if (isset($_SESSION['u_id'])) {
       $row = mysqli_fetch_assoc($result);
       // Delete the blog into the database
       $sql = "DELETE FROM `blogs` WHERE `blogs`.`post_id` = $post_id;";
+
+      unlink('../../uploads/blogs/'.$row['post_image']);
+
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
       header("Location: http://localhost/project-website/index.php?delete_blog=success");
       exit();
