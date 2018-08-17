@@ -14,8 +14,6 @@ include 'includes/dbh.inc.php';
     $resultCheck = mysqli_num_rows($result);
     // If there are no results in the database...
     if ($resultCheck < 1) {
-        // header("Location: ../../index.php?blog=error");
-        // exit();
       ?>
         <p>Blog not found.</p>
       <?php
@@ -34,6 +32,9 @@ include 'includes/dbh.inc.php';
         $Userrow = mysqli_fetch_assoc($Userresult);
       ?>
       <div id="blog_post">
+        <ul>
+          <li> <?php echo $row['category'] ?> </li>
+        </ul>
         <h1><?php echo $row['post_title'] ?> </h1>
         <?php if ($row['post_image']===NULL) {
         }else{ ?>

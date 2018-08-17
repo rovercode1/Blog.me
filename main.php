@@ -95,12 +95,11 @@
             <?php
               }else{
             $limit = 3;
-            $offset = $total + 1 - $limit;
-            $blogs ="SELECT * FROM blogs ORDER BY `post_id`DESC LIMIT $limit ";
+            $blogs ="SELECT * FROM blogs ORDER BY `post_id` DESC LIMIT $limit ";
             $Blogresult = mysqli_query($conn, $blogs);
             $Blogtotal = mysqli_num_rows($Blogresult);
               if ($Blogtotal < 1) {  ?>
-              <p>Blog not found.</p>
+                <p>Blog not found.</p>
               <?php
               }else{
                 while ($row = mysqli_fetch_assoc($Blogresult)) {
