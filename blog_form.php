@@ -18,6 +18,7 @@
             <label>Tagline</label>
           <input class="form-control"type="text" name="tag" placeholder="ex. a quote from your blog or a shorter version of your title" required>
             <label>Category</label>
+            <p></p>
             <select name="category" id='category'>
               <option value="entertainment.">Entertainment</option>
               <option value="politics.">Politics</option>
@@ -29,7 +30,7 @@
               <option value="movies.">Movies</option>
               <option value="music.">Music</option>
             </select>
-            
+
               <!-- <input class="form-control"type="text" name="category" placeholder="Blog Category" required> -->
             <label>Blog Body</label>
           <textarea rows='20'class="form-control"type="text" name="body" placeholder="What's on your mind?" required></textarea>

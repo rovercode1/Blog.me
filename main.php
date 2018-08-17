@@ -118,7 +118,9 @@
                     <div class="col-lg-12 col-md-12">
                     <div class="blog_desc">
                     <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
-                    <p id='post_author'>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+                    <div class="">
+                      <p id='post_author'>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+                    </div>
                     <p id='post_date'><?php echo $row['post_date'] ?></p>
                     </div>
                     </div>
