@@ -1,9 +1,36 @@
 <?php
   include_once 'includes/dbh.inc.php';
 ?>
+<div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form class="" action="includes/index/login.inc.php" method="POST">
+        <label>Username/E-mail</label>
+          <input class="form-control"type="text" name="uid" placeholder="Username/E-mail">
+          <label>Password</label>
+          <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
+          <button class="btn btn-primary btn-sm"type="submit" name="submit">Sign In</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-warning btn-sm"href="signup.php">Need an account? Sign Up!</a>
+      </div>
+    </div>
+  </div>
+</div>
 <section id='showcase'>
   <h1>Create your blog today!</h1>
-  <a class="btn "href="#">Get started!</a>
+  <!-- <a class="btn "href="#logginModal"></a> -->
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logginModal">
+  Get Started!
+  </button>
 </section>
 <section >
   <div class="container">
@@ -103,7 +130,9 @@
       <h2>Have any questions?</h2>
       <a href="#">Contact us</a>
       <h2>Ready to get started?</h2>
-      <a href="#">Get started!</a>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logginModal">
+        Get Started!
+      </button>
     </div>
   </div>
 </section>

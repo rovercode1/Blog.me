@@ -16,7 +16,6 @@
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 
 <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:400,700" rel="stylesheet">
-
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -33,31 +32,29 @@
             <li class="nav-item active">
               <a class="nav-link" href="blog_form.php">Post New Blog</a>
             </li>
-          <?php } ?>
+          <?php }?>
           </ul>
 
           <ul class="navbar-nav ml-auto">
             <?php
-              if (isset($_SESSION['u_id'])) {
-                ?>
-                <li class="nav-item active">
+            if (isset($_SESSION['u_id'])) {
+              ?>
+              <li class="nav-item active">
                 <a class="nav-link" href="http://localhost/project-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
-                </li>
-                <form  action="includes/index/logout.inc.php" method="POST">
-                  <button class="btn btn-warning btn-sm"type="submit" name="submit">Log Out</button>
-                </form>
-                <?php
-              }else{
-                ?>
-                <form class="main-form" action="includes/index/login.inc.php" method="POST">
-                  <input class="form-control"type="text" name="uid" placeholder="Username/email">
-                  <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
-                  <button class="btn btn-primary btn-sm"type="submit" name="submit">Sign In</button>
-                <a class="btn btn-warning"href="signup.php">Sign Up</a>
-                </form>
+              </li>
+              <form  action="includes/index/logout.inc.php" method="POST">
+                <button class="btn btn-warning btn-sm"type="submit" name="submit">Log Out</button>
+              </form>
                 <?php
               }
-             ?>
+              else{
+                ?>
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#logginModal">
+                  Loggin/Signup
+                </button>
+                <?php
+              }?>
           </ul>
         </div>
       </div>

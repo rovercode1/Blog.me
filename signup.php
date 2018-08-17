@@ -11,7 +11,9 @@
             <label>E-mail</label>
           <input class="form-control"type="text" name="email" placeholder="Enter email"required>
           <label>Username</label>
-          <input class="form-control"type="text" name="uid" placeholder="Enter username"required>
+            <input class="form-control"type="text" name="uid" placeholder="Enter username"required>
+          <label>Profile Picture</label>
+            <input name="user_av" type="file">
             <label>Password</label>
           <input class="form-control"type="password" name="pwd" placeholder="Password"required>
           <button class="form-control btn btn-primary"type="submit" name="submit">Sign Up</button>

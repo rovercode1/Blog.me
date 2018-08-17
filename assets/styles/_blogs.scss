@@ -8,3 +8,33 @@
      margin-right: 10px;
   }
 }
+
+#blog_post
+{
+  h1
+  {
+    text-align: center !important;
+    font-family: 'Roboto', sans-serif!important;
+  }
+  p
+  {
+    font-family: 'Open Sans', sans-serif!important;
+  }
+  img
+  {
+    max-width: 650px !important;
+  }
+}
+
+#post_body
+{
+  white-space: pre-wrap!important;
+}
+
+#category
+{
+  display: block;
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  padding: 5px 30px;
+}

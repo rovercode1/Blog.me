@@ -2,23 +2,24 @@
 // If user is signed in
 if (isset($_SESSION['u_id'])) {
   try {
-
+      $author = (int)$_GET['user'];
       // Find out how many items are in the table
-      $total = $dbh->query('
-          SELECT
-              COUNT(*)
-          FROM
-              blogs
-      ')->fetchColumn();
-
+      $total = $dbh->query('SELECT COUNT(*) FROM blogs WHERE `post_author` = :author
+  ')->fetchColumn();
+      $stmt->bindParam(':author', $author, PDO::PARAM_INT);
+      ?>
+      <?php
       // How many items to list per page
-      $limit = 4;
+      $limit = 3;
 
       // How many pages will there be
         // celi = Round fractions up
       $pages = ceil($total / $limit);
 
       // What page are we currently on?
+        // MIN = Find lowest value in array
+        // INPUT_GET = get the page var from
+        // the next and prev btn
       $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
           'options' => array(
               'default'   => 1,
@@ -44,22 +45,14 @@ if (isset($_SESSION['u_id'])) {
       // echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ', $nextlink, ' </p></div>';
 
       // Prepare the paged query
-      $stmt = $dbh->prepare('
-          SELECT
-              *
-          FROM
-              blogs
-          ORDER BY
-              post_title
-          LIMIT
-              :limit
-          OFFSET
-              :offset
+      $stmt = $dbh->prepare('SELECT * FROM blogs WHERE `post_author` = 8 ORDER BY `post_id` LIMIT :limit OFFSET :offset
       ');
 
       // Bind the query params
       $stmt->bindParam(':limit', $limit, PDO::PARAM_INT);
       $stmt->bindParam(':offset', $offset, PDO::PARAM_INT);
+      $stmt->bindParam(':test', 8, PDO::PARAM_INT);
+      // $stmt->bindParam(':author', $author, PDO::PARAM_INT);
       $stmt->execute();
 
       // Do we have any results?
@@ -70,7 +63,12 @@ if (isset($_SESSION['u_id'])) {
 
           // Display the results
           foreach ($iterator as $row) {
-              echo '<p>', $row['post_title'], '</p>';
+            ?>
+            <a href="blogs.php <?php echo '?blog='. $row['post_id']?>">
+              <p> <?php echo $row['post_title'] ?></p>
+            </a>
+            <?php
+              // echo '<p>', $row['post_title'], '</p>';
           }
 
                 // Display the paging information
