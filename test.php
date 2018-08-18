@@ -1,18 +1,17 @@
 <?php
-session_start();
-    include_once 'includes/dbh.inc.php';
-     $sql = "SELECT * FROM users";
-     $result = mysqli_query($conn, $sql);
-     while($row = mysqli_fetch_assoc($result)){;
-    $user_id = $row['user_id'];
-    $author = $row['user_uid'];
-    ?>
-      <p> <?php echo $user_id ?> </p>
-      <p> <?php echo $author ?> </p>
-    <?php
-    $priv = "INSERT INTO `user_priv`(`id`, `priv`,`author`) VALUES ($user_id,0,'$author')";
-    mysqli_query($conn, $priv);
+include 'header.php';
+  include_once 'includes/dbh.inc.php';
+  $id = $_SESSION['u_id'];
+  $privSql = "SELECT * FROM `user_priv` WHERE id = $id";
+  $resultPriv = mysqli_query($conn, $privSql);
+  while($privrow = mysqli_fetch_assoc($resultPriv)){
+    $author = $privrow['author'];
+    $priv = $privrow['priv'];
+    if ($priv > 0) {
+      ?>
+        <p><?php echo $author ?></p>
+        <p><?php echo $priv ?></p>
+        <?php
     }
-    header("Location: index.php?=success");
-    exit();
- ?>
+  }
+include 'footer.php';?>

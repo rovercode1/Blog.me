@@ -40,7 +40,7 @@ include 'includes/dbh.inc.php';
         }else{ ?>
         <img src="uploads/blogs/<?php echo $row['post_image'] ?> " alt="">
       <?php } ?>
-        <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_uid'] ?></em></a> <span><?php echo $row['post_date'] ?></span> </p>
+        <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_first'] ?> <?php echo $Userrow['user_last'] ?></em></a> <span><?php echo $row['post_date'] ?></span> </p>
         <div id="buttons">
           <a class='btn btn-primary btn-sm'href="http://localhost/project-website">Back</a>
           <?php if ($_SESSION['u_id'] == $row['post_author']): ?>
