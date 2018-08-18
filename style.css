@@ -29,22 +29,6 @@ a.btn.btn-warning.btn-sm {
   text-align: center;
   font-family: Roboto, sans-serif; }
 
-#post_date {
-  background: #2d6f9d;
-  color: #fff;
-  display: inline;
-  font-weight: 500;
-  padding: 0px 13px; }
-
-#post_author {
-  background: #000000c2;
-  color: #fff;
-  font-weight: 500;
-  padding: 0px 13px;
-  margin-bottom: 5px; }
-  #post_author a {
-    color: #fff; }
-
 nav {
   z-index: 1;
   border-bottom: 1px solid #ddd; }
@@ -292,8 +276,26 @@ header {
   margin: 2px 0px;
   margin: 10px 0px; }
   .blog_desc h4 {
+    margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
     color: #333; }
+
+#post_date {
+  background: #2d6f9d;
+  color: #fff;
+  display: inline;
+  font-weight: 500;
+  padding: 0px 13px; }
+
+#post_author {
+  display: inline;
+  background: #000000c2;
+  color: #fff;
+  font-weight: 500;
+  padding: 0px 13px;
+  margin-bottom: 5px; }
+  #post_author a {
+    color: #fff; }
 
 @media (max-width: 768px) {
   .blog_desc {

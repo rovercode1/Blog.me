@@ -1,6 +1,6 @@
-<section id='main-site'>
+<!-- <section id='main-site'>
   <div class="container">
-    <!-- <div id="content"> -->
+    <div id="content">
       <div id='featured'>
         <div class="blog_desc" id='featured'>
           <div class="row">
@@ -21,7 +21,6 @@
                   <?php }
                   else{
                     $limit = 3;
-                    $offset = $total + 1 - $limit;
                     $blogs ="SELECT * FROM blogs WHERE category = 'Featured'";
                     $Blogresult = mysqli_query($conn, $blogs);
                     $Blogtotal = mysqli_num_rows($Blogresult);
@@ -118,7 +117,9 @@
                     <div class="col-lg-12 col-md-12">
                     <div class="blog_desc">
                     <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
-                    <p id='post_author'>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+                    <div class="">
+                      <p id='post_author'>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+                    </div>
                     <p id='post_date'><?php echo $row['post_date'] ?></p>
                     </div>
                     </div>
@@ -141,4 +142,4 @@
 <!-- Row/Container/Main-site -->
     </div>
   </div>
-</section>
+</section> -->
