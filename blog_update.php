@@ -29,11 +29,25 @@
             </div>
             <label>Blog Title</label>
           <input class="form-control"type="text" name="title" placeholder="Blog Title" value="<?php echo $row['post_title'] ?> "required>
-            <label>Category</label>
-          <input class="form-control"type="text" name="category" placeholder="Blog Category" value="<?php echo $row['category'] ?> "required>
+          <input class="form-control"type="text" name="tag" placeholder="ex. a quote from your blog or a shorter version of your title" required>
+            <label>Category (Custom inputs will be deleted.)</label>
+            <div class="container">
+              <input id='input'type="text" name='category' class="form-control" value='<?php echo $row['category']?>'>
+              <ul class='block-item'>
+                <li class='li-item'>Politics</li>
+                <li class='li-item'>World</li>
+                <li class='li-item'>Ideas</li>
+                <li class='li-item'>Tech</li>
+                <li class='li-item'>Entertainment</li>
+                <li class='li-item'>Health</li>
+                <li class='li-item'>Sport</li>
+                <li class='li-item'>Movies</li>
+                <li class='li-item'>Music</li>
+              </ul>
+            </div>
             <label>Blog Body</label>
           <textarea rows='15'class="form-control"type="text" name="body" placeholder="What's on your mind?" required><?php echo $row['post_body'] ?> </textarea>
-          <button class="form-control btn btn-primary"type="submit" name="submit">Update</button>
+          <button id='btn'class="form-control btn btn-primary"type="submit" name="submit">Update</button>
         </form>
       </div>
     </div>
