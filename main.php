@@ -1,6 +1,6 @@
-<section id='main-site'>
+<!-- <section id='main-site'>
   <div class="container">
-    <!-- <div id="content"> -->
+    <div id="content">
       <div id='featured'>
         <div class="blog_desc" id='featured'>
           <div class="row">
@@ -21,7 +21,6 @@
                   <?php }
                   else{
                     $limit = 3;
-                    $offset = $total + 1 - $limit;
                     $blogs ="SELECT * FROM blogs WHERE category = 'Featured'";
                     $Blogresult = mysqli_query($conn, $blogs);
                     $Blogtotal = mysqli_num_rows($Blogresult);
@@ -143,4 +142,4 @@
 <!-- Row/Container/Main-site -->
     </div>
   </div>
-</section>
+</section> -->
