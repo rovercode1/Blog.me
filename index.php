@@ -1,5 +1,9 @@
 <?php  include 'header.php';?>
 <section id='main-site'>
+<<<<<<< HEAD
+=======
+  <div class="container">
+>>>>>>> b8395c6faa858c2cace1b5998a59c0d88ef656f7
     <h1>hotspot</h1>
     <div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
