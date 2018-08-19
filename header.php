@@ -1,6 +1,5 @@
 <?php session_start();
-  include_once 'includes/dbh.inc.php';
-?>
+  include_once 'includes/dbh.inc.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -20,7 +19,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="index.php">Blog.com</a>
+        <a class="navbar-brand" href="index.php">hotspot.com</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,11 +27,21 @@
           <ul class="navbar-nav mr-auto">
             <?php
             if (isset($_SESSION['u_id'])) {
-              ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="blog_form.php">Post New Blog</a>
-            </li>
-          <?php }?>
+              $id = $_SESSION['u_id'];
+              $sql = "SELECT * FROM `user_priv` WHERE id = $id";
+              $result = mysqli_query($conn, $sql);
+              while($row = mysqli_fetch_assoc($result)){
+                $author = $row['author'];
+                $priv = $row['priv'];
+                if ($priv > 0) {
+                  ?>
+                    <li class="nav-item active">
+                      <a class="nav-link" href="blog_form.php">Post New Blog</a>
+                    </li>
+                    <?php
+                }
+              }
+            }?>
           </ul>
 
           <ul class="navbar-nav ml-auto">
