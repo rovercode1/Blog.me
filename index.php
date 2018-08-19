@@ -1,6 +1,6 @@
 <?php  include 'header.php';?>
 <section id='main-site'>
-  <div class="container">
+    <h1>hotspot</h1>
     <div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -25,8 +25,8 @@
         </div>
       </div>
     </div>
-    <!-- <div id="content"> -->
       <div id='featured'>
+        <div class="container">
         <div class="blog_desc" id='featured'>
           <div class="row">
             <div class="col-lg-12">
@@ -38,7 +38,7 @@
                   <?php $count = 0;
                   $active = 'active show';
                   $id = 'f';
-                  $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
+                  $sql = "SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                   $result = mysqli_query($conn, $sql);
                   $total = mysqli_num_rows($result);
                   if ($total < 1) {?>
@@ -46,7 +46,7 @@
                   <?php }
                   else{
                     $limit = 3;
-                    $blogs ="SELECT * FROM blogs WHERE category = 'Featured'";
+                    $blogs ="SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                     $Blogresult = mysqli_query($conn, $blogs);
                     $Blogtotal = mysqli_num_rows($Blogresult);
                     if ($Blogtotal < 1) {?>
@@ -70,7 +70,7 @@
                 $count = 0;
                 $activeTab = 'active show';
                 $id = 'f';
-                $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
+                $sql = "SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                 $result = mysqli_query($conn, $sql);
                 $total = mysqli_num_rows($result);
                 if ($total < 1) {?>
@@ -79,7 +79,7 @@
                 else{
                 $limit = 3;
                 $offset = $total + 1 - $limit;
-                $blogs ="SELECT * FROM blogs WHERE category = 'Featured' ";
+                $blogs ="SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                 $Blogresult = mysqli_query($conn, $blogs);
                 $Blogtotal = mysqli_num_rows($Blogresult);
                 if ($Blogtotal < 1) {?>
@@ -100,12 +100,14 @@
                   <?php }
                 }
               ?>
-                </div>
               </div>
             </div>
           </div>
         </div>
-
+      </div>
+    </div>
+    <section>
+      <div class="container">
       <div class="row" id='content'>
         <div class="col-lg-4 md-4">
           <h1 class='main-header'>Most Recent</h1>
@@ -156,17 +158,18 @@
             // header("Location: ../../index.php");
             // exit();
           // }?>
-    </div>
-    <div class="col-lg-4 col-md-4">
-      <div class="col-lg-12">
-        <h1 class='main-header'>To The Point</h1>
+        </div>
+        <div class="col-lg-4 col-md-4">
+          <div class="col-lg-12">
+            <h1 class='main-header'>To The Point</h1>
 
+          </div>
+        </div>
       </div>
     </div>
+  </section>
+</section>
 
 <!-- Row/Container/Main-site -->
-    </div>
-  </div>
-</section>
 
 <?php include 'footer.php';?>
