@@ -49,7 +49,12 @@ if (!isset($_SESSION['u_id'])) {
     <?php
   }else{
   header("Location: index.php?error");
+<<<<<<< HEAD
   exit();}
+=======
+  exit();
+  }
+>>>>>>> bb9754c97e1d136c137bddc06422deab48f1e58c
   }
 };
 include 'footer.php';
