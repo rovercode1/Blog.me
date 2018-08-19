@@ -1,6 +1,7 @@
 <?php  include 'header.php';?>
 <section id='main-site'>
   <div class="container">
+    <h1>hotspot</h1>
     <div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
@@ -38,7 +39,7 @@
                   <?php $count = 0;
                   $active = 'active show';
                   $id = 'f';
-                  $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
+                  $sql = "SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                   $result = mysqli_query($conn, $sql);
                   $total = mysqli_num_rows($result);
                   if ($total < 1) {?>
@@ -46,7 +47,7 @@
                   <?php }
                   else{
                     $limit = 3;
-                    $blogs ="SELECT * FROM blogs WHERE category = 'Featured'";
+                    $blogs ="SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                     $Blogresult = mysqli_query($conn, $blogs);
                     $Blogtotal = mysqli_num_rows($Blogresult);
                     if ($Blogtotal < 1) {?>
@@ -70,7 +71,7 @@
                 $count = 0;
                 $activeTab = 'active show';
                 $id = 'f';
-                $sql = "SELECT * FROM blogs WHERE category = 'Featured'";
+                $sql = "SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                 $result = mysqli_query($conn, $sql);
                 $total = mysqli_num_rows($result);
                 if ($total < 1) {?>
@@ -79,7 +80,7 @@
                 else{
                 $limit = 3;
                 $offset = $total + 1 - $limit;
-                $blogs ="SELECT * FROM blogs WHERE category = 'Featured' ";
+                $blogs ="SELECT * FROM `blogs` WHERE `category` LIKE '%Featured%'";
                 $Blogresult = mysqli_query($conn, $blogs);
                 $Blogtotal = mysqli_num_rows($Blogresult);
                 if ($Blogtotal < 1) {?>
