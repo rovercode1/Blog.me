@@ -47,6 +47,13 @@ if (!isset($_SESSION['u_id'])) {
             <div class="container">
               <input id='input'type="text" name='category' class="form-control" value='<?php echo $row['category']?>'>
               <ul class='block-item'>
+                <?php
+                  if ($userpriv = 2) {
+                    ?>
+                      <li class='li-item'>Featured</li>
+                    <?php
+                  }
+                ?>
                 <li class='li-item'>Politics</li>
                 <li class='li-item'>World</li>
                 <li class='li-item'>Ideas</li>
