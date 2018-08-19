@@ -32,8 +32,16 @@ include 'includes/dbh.inc.php';
         $Userrow = mysqli_fetch_assoc($Userresult);
       ?>
       <div id="blog_post">
-        <ul>
-          <li> <?php echo $row['category'] ?> </li>
+        <ul id='blog-cat'>
+          <?php
+            $Rowcategory = $row['category'];
+            $category = explode(",",$Rowcategory);
+            for ($i=0; $i < sizeof($category); $i++) {
+              ?>
+                <li> <?php echo $category[$i] ?> </li>
+              <?php
+            }
+           ?>
         </ul>
         <h1><?php echo $row['post_title'] ?> </h1>
         <?php if ($row['post_image']===NULL) {

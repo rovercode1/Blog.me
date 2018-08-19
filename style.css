@@ -372,6 +372,19 @@ header {
   border-radius: 2px;
   padding: 5px 30px; }
 
+#blog-cat {
+  list-style: none;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  font-weight: 00;
+  margin: 16px 0px; }
+  #blog-cat li {
+    padding: 10px;
+    color: #b60000;
+    font-family: 'Roboto';
+    text-transform: uppercase; }
+
 div#user-box {
   margin-bottom: 30px;
   display: flex;
