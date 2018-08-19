@@ -25,7 +25,7 @@ if (isset($_SESSION['u_id'])) {
         $UserresultCheck = mysqli_num_rows($Userresult);
         // If there are no results in the database...
           if ($UserresultCheck < 1) {
-            header("Location: http://localhost/project-website/index.php?user=nouser");
+            header("Location: http://localhost/news-website/index.php?user=nouser");
             exit();
           }else{
             $Userrow = mysqli_fetch_assoc($Userresult);
@@ -33,7 +33,7 @@ if (isset($_SESSION['u_id'])) {
             <div class="col-lg-12 col-md-12">
             <div class="blog_desc">
             <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h4><?php echo $row['post_title'] ?> </h4></a>
-            <p>Posted by <a href="http://localhost/project-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
+            <p>Posted by <a href="http://localhost/news-website/profile.php?user=<?php echo $row['post_author']?>"> <em><?php echo $Userrow['user_uid'] ?></em></a></p>
             <p><?php echo $row['post_date'] ?></p>
             </div>
             </div>

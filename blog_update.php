@@ -23,7 +23,13 @@ if (!isset($_SESSION['u_id'])) {
   $row = mysqli_fetch_assoc($result);
   // If the current user is not the author
   // of the blog, redirect to home page.
-  if($_SESSION['u_id'] == $row['post_author']){?>
+
+  $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
+  $privResult = mysqli_query($conn, $privsql);
+    $privRow = mysqli_fetch_assoc($privResult);
+    $userpriv = $privRow['priv'];
+  // If user is admin - allow update.
+  if($_SESSION['u_id'] == $row['post_author'] || $userpriv = 2 ) {?>
   <section>
     <div class="container">
       <div id='signup' class="main-wrapper">
@@ -68,7 +74,7 @@ if (!isset($_SESSION['u_id'])) {
 }else{
   header("Location: http://localhost/project-website/index.php?update_blog_form=error");
   exit();
-}  
+}
   }
 };
 include 'footer.php';

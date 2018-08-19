@@ -20,7 +20,7 @@ if (isset($_SESSION['u_id'])) {
       $resultCheck = mysqli_num_rows($result);
       // If there are no results in the database...
       if ($resultCheck < 1) {
-        header("Location: http://localhost/project-website/index.php?blog=error");
+        header("Location: http://localhost/news-website/index.php?blog=error");
         exit();
       }else{
         $row = mysqli_fetch_assoc($result);
@@ -28,7 +28,7 @@ if (isset($_SESSION['u_id'])) {
         $sql = "DELETE FROM `blogs` WHERE `blogs`.`post_id` = $post_id;";
         unlink('../../uploads/blogs/'.$row['post_image']);
         mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        header("Location: http://localhost/project-website/index.php?delete_blog=success");
+        header("Location: http://localhost/news-website/index.php?delete_blog=success");
         exit();
           }
           // button was pressed.

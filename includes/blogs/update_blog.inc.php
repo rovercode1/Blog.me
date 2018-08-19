@@ -55,7 +55,7 @@ if (isset($_SESSION['u_id'])) {
                 if ($fileSize < 1000000) {
                   unlink('../../uploads/blogs/'.$row['post_image']);
                   $fileNameNew = $id ."_" . uniqid('',true)."."."$fileActualExt";
-                  $fileDestination = ='../../uploads/blogs/'.$fileNameNew;
+                  $fileDestination ='../../uploads/blogs/'.$fileNameNew;
                   move_uploaded_file($fileTmpName, $fileDestination);
                   $img = "UPDATE `blogs` SET `post_image` = '$fileNameNew' WHERE `blogs`.`post_id` = $id;";
                   mysqli_query($conn, $img);
