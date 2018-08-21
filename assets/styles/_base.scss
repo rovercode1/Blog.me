@@ -42,6 +42,7 @@ a.btn.btn-warning.btn-sm
 {
   text-align: center;
   font-family: Roboto, sans-serif;
+  font-size: 30px;
 }
 
 .img
@@ -52,4 +53,14 @@ a.btn.btn-warning.btn-sm
   {
     max-width: 100%;
   }
+}
+
+.right-border
+{
+  border-right: 1px solid #ddd;
+}
+
+.left-border
+{
+  border-left: 1px solid #ddd;
 }

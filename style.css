@@ -27,13 +27,20 @@ a.btn.btn-warning.btn-sm {
 
 .main-header {
   text-align: center;
-  font-family: Roboto, sans-serif; }
+  font-family: Roboto, sans-serif;
+  font-size: 30px; }
 
 .img {
   max-width: 100px;
   margin-right: 30px; }
   .img img {
     max-width: 100%; }
+
+.right-border {
+  border-right: 1px solid #ddd; }
+
+.left-border {
+  border-left: 1px solid #ddd; }
 
 nav {
   z-index: 1;
@@ -242,10 +249,20 @@ section#showcase::after {
 @media (max-width: 318px) {
   section#showcase::after {
     top: 8%; } }
+#top-story img {
+  max-width: 100%; }
+
 #featured {
   height: auto;
   box-shadow: none;
-  margin: 20px 0px; }
+  margin: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  #featured img {
+    max-width: 300px; }
+  #featured p {
+    padding-left: 20px; }
 
 header {
   display: flex !important;
@@ -277,14 +294,15 @@ header {
   padding: 5px; }
 
 .blog_desc {
-  border-bottom: 1px solid #7a7a7a;
+  border-bottom: 1px solid #ddd;
   background: #fff;
   margin: 2px 0px;
   margin: 10px 0px; }
   .blog_desc h4 {
-    margin-bottom: 30px;
     font-family: 'Roboto', sans-serif;
-    color: #333; }
+    color: #333;
+    margin-bottom: 12px;
+    font-size: 18px; }
 
 #post_date {
   background: #2d6f9d;
@@ -303,13 +321,31 @@ header {
   #post_author a {
     color: #fff; }
 
-#article-len .img {
+#article-len {
+  padding-bottom: 100px; }
+  #article-len .img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    max-width: 300px;
+    margin: 0px; }
+  #article-len h5 {
+    color: #333;
+    text-align: center;
+    font-size: 18px;
+    padding-top: 12px; }
+    #article-len h5:hover {
+      color: #000;
+      text-decoration: none; }
+
+#article {
   display: flex;
   justify-content: center;
-  max-width: 100%;
-  align-items: center; }
-  #article-len .img img {
-    max-height: 200px; }
+  align-items: center;
+  flex-direction: column; }
+  #article h5 {
+    font-family: 'Roboto', sans-serif; }
 
 @media (max-width: 768px) {
   .blog_desc {
@@ -392,6 +428,9 @@ header {
     color: #b60000;
     font-family: 'Roboto';
     text-transform: uppercase; }
+
+nav {
+  margin-bottom: 20px; }
 
 div#user-box {
   margin-bottom: 30px;
