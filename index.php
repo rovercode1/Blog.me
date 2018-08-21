@@ -154,15 +154,26 @@
                 }
               }
             }
-          // }else{
-            // header("Location: ../../index.php");
-            // exit();
-          // }?>
+          ?>
         </div>
-        <div class="col-lg-4 col-md-4">
+        <div class="col-lg-8 col-md-8">
           <div class="col-lg-12">
+            <div id="article-len">
+            <!--  Articles under 700 words -->
             <h1 class='main-header'>To The Point</h1>
-
+              <?php
+                $sql = "SELECT * FROM `blogs` WHERE CHAR_LENGTH(`post_body`) < 2000 ORDER BY `post_id` DESC LIMIT 2";
+                $result = mysqli_query($conn, $sql);
+                while ($row = mysqli_fetch_assoc($result)) {
+                  $body = $row['post_body'];
+                    ?>
+                    <div class="img">
+                      <img src="uploads/blogs/<?php echo $row['post_image'] ?>" alt="">
+                    </div>
+                    <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><h5><?php echo $row['post_title'] ?> </h5></a>
+                    <?php
+                }
+               ?>
           </div>
         </div>
       </div>

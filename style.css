@@ -303,6 +303,14 @@ header {
   #post_author a {
     color: #fff; }
 
+#article-len .img {
+  display: flex;
+  justify-content: center;
+  max-width: 100%;
+  align-items: center; }
+  #article-len .img img {
+    max-height: 200px; }
+
 @media (max-width: 768px) {
   .blog_desc {
     height: 100%; } }
