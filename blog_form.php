@@ -21,23 +21,29 @@ if (!isset($_SESSION['u_id'])) {
               </div>
             <label>Blog Title</label>
               <input class="form-control"type="text" name="title" placeholder="Blog Title" required>
-            <label>Tagline</label>
-              <input class="form-control"type="text" name="tag" placeholder="ex. a quote from your blog or a shorter version of your title" required>
-            <label>Category (Custom inputs will be deleted.)</label>
-            <div class="container">
-              <input id='input'type="text" name='category' class="form-control">
-              <ul class='block-item'>
-                <li class='li-item'>Politics</li>
-                <li class='li-item'>World</li>
-                <li class='li-item'>Ideas</li>
-                <li class='li-item'>Tech</li>
-                <li class='li-item'>Entertainment</li>
-                <li class='li-item'>Health</li>
-                <li class='li-item'>Sport</li>
-                <li class='li-item'>Movies</li>
-                <li class='li-item'>Music</li>
-              </ul>
-            </div>
+              <label>Category (Custom inputs will be deleted.)</label>
+                <div class="container">
+                  <input id='input'type="text" name='category' class="form-control">
+                  <ul class='block-item'>
+                    <?php
+                      if ($userpriv = 2) {
+                        ?>
+                          <li class='li-item'>Featured</li>
+                          <li class='li-item'>Top</li>
+                        <?php
+                      }
+                    ?>
+                    <li class='li-item'>Politics</li>
+                    <li class='li-item'>World</li>
+                    <li class='li-item'>Ideas</li>
+                    <li class='li-item'>Tech</li>
+                    <li class='li-item'>Entertainment</li>
+                    <li class='li-item'>Health</li>
+                    <li class='li-item'>Sport</li>
+                    <li class='li-item'>Movies</li>
+                    <li class='li-item'>Music</li>
+                  </ul>
+                </div>
             <!-- <input class="form-control"type="text" name="category" placeholder="Blog Category" required> -->
             <label>Blog Body</label>
             <textarea rows='20'class="form-control"type="text" name="body" placeholder="What's on your mind?" required></textarea>
@@ -50,9 +56,7 @@ if (!isset($_SESSION['u_id'])) {
   }else{
   header("Location: index.php?error");
   exit();}
-  exit();
   }
   }
-};
 include 'footer.php';
 ?>

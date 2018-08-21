@@ -41,8 +41,6 @@ if (!isset($_SESSION['u_id'])) {
           </div>
           <label>Blog Title</label>
             <input class="form-control"type="text" name="title" placeholder="Blog Title" value="<?php echo $row['post_title'] ?> "required>
-          <label>Blog Tagline</label>
-            <input class="form-control"type="text" name="tag" placeholder="ex. a quote from your blog or a shorter version of your title" required>
           <label>Category (Custom inputs will be deleted.)</label>
             <div class="container">
               <input id='input'type="text" name='category' class="form-control" value='<?php echo $row['category']?>'>
@@ -51,6 +49,7 @@ if (!isset($_SESSION['u_id'])) {
                   if ($userpriv = 2) {
                     ?>
                       <li class='li-item'>Featured</li>
+                      <li class='li-item'>Top</li>
                     <?php
                   }
                 ?>
