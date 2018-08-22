@@ -1,3 +1,9 @@
+body {
+  font-family: "Roboto", sans-serif !important; }
+
+a {
+  color: #60adff; }
+
 .main-wrapper {
   border: 1px solid #efefef;
   border-radius: 8px;
@@ -27,7 +33,6 @@ a.btn.btn-warning.btn-sm {
 
 .main-header {
   text-align: center;
-  font-family: Roboto, sans-serif;
   font-size: 30px; }
 
 .img {
@@ -252,6 +257,9 @@ section#showcase::after {
 #top-story img {
   max-width: 100%; }
 
+.post_body {
+  font-family: 'Open Sans',sans-serif; }
+
 #featured {
   height: auto;
   box-shadow: none;
@@ -262,7 +270,12 @@ section#showcase::after {
   #featured img {
     max-width: 300px; }
   #featured p {
+    font-family: 'Open Sans',sans-serif;
     padding-left: 20px; }
+
+#myTab {
+  display: flex;
+  flex-direction: column; }
 
 header {
   display: flex !important;
@@ -299,7 +312,6 @@ header {
   margin: 2px 0px;
   margin: 10px 0px; }
   .blog_desc h4 {
-    font-family: 'Roboto', sans-serif;
     color: #333;
     margin-bottom: 12px;
     font-size: 18px; }
@@ -347,10 +359,23 @@ header {
   #article h5 {
     font-family: 'Roboto', sans-serif; }
 
+.view-more {
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+  .view-more a {
+    font-size: 20px;
+    border: 1px solid;
+    padding: 1px 10px;
+    border-radius: 6px; }
+
 @media (max-width: 768px) {
   .blog_desc {
     height: 100%; } }
-@media (max-width: 991px) {
+@media (max-width: 990px) {
+  #main-site #featured {
+    display: flex;
+    flex-direction: column; }
   #main-site .container {
     max-width: 100%; } }
 .testimonial-box {
