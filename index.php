@@ -44,6 +44,9 @@
                 <?php
               }
              ?>
+             <div class="container view-more">
+               <a href="#">View More</a>
+             </div>
            </div>
           </div>
           <div class="col-lg-6 md-6">
@@ -92,13 +95,16 @@
                 }
               }
             ?>
-            <a href="#">View More</a>
+            <div class="container view-more" >
+              <a href="#">View More</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
       <div id='featured'>
         <div class="container">
+          <h1 class='main-header'>Featured Articles</h1>
         <div class="blog_desc" id='featured'>
           <div class="row">
             <div class="col-lg-12">
@@ -175,6 +181,9 @@
                   <?php }
                 }
               ?>
+              <div class="container view-more">
+                <a href="#">View More</a>
+              </div>
               </div>
             </div>
           </div>
@@ -205,6 +214,9 @@
                     <?php
                   }
                ?>
+               <div class="container view-more">
+                 <a href="#">View More</a>
+               </div>
           </div>
         </div>
       </div>

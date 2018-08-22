@@ -1,6 +1,6 @@
 <?php include 'header.php';
 // If user is signed in
-if (isset($_SESSION['u_id'])) {
+// if (isset($_SESSION['u_id'])) {
   $user_id = $_GET['user'];
   // If user is logged in...
   // Find the user in database
@@ -110,10 +110,10 @@ if (isset($_SESSION['u_id'])) {
     </div>
     <?php
     }
-  }
-  else{
-    header("Location: ../../index.php");
-    exit();
-  }
+  // }
+  // else{
+  //   header("Location: ../../index.php");
+  //   exit();
+  // }
 include 'footer.php';
 ?>

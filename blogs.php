@@ -6,7 +6,6 @@ include 'includes/dbh.inc.php';
   <?php
   $post_id = $_GET['blog'];
   // If user is logged in...
-  if (isset($_SESSION['u_id'])) {
     // Find the blog in database
     $sql  ="SELECT * FROM blogs WHERE post_id ='$post_id'";
     // result = what is found in the database
@@ -51,6 +50,8 @@ include 'includes/dbh.inc.php';
         <p>Posted by <a href="http://localhost/news-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_first'] ?> <?php echo $Userrow['user_last'] ?></em></a> <span><?php echo $row['post_date'] ?></span> </p>
         <div id="buttons">
           <a class='btn btn-primary btn-sm'href="http://localhost/news-website">Back</a>
+<?php if (isset($_SESSION['u_id'])) {?>
+
           <?php
           $id = $_SESSION['u_id'];
           $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
@@ -64,16 +65,13 @@ include 'includes/dbh.inc.php';
             </form>
             <a class='btn btn-warning btn-sm' href="blog_update.php <?php echo '?blog='. $row['post_id']?>" >Update</a>
           <?php endif; ?>
-        </div>
+      <?php } ?>
+    </div>
         <p id='post_body'> <?php echo $row['post_body'] ?> </p>
       </div>
     </div>
     <?php
     }
   }
-}else{
-    header("Location: index.php?loggedin=false");
-    exit();
-}
 include 'footer.php' ?>
 </div>
