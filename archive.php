@@ -32,7 +32,7 @@
       // The "forward" link
       $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1).'"title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
 
-      $blogs ="SELECT * FROM blogs LIMIT $limit OFFSET $offset";
+      $blogs ="SELECT * FROM blogs ORDER BY `post_id` DESC LIMIT $limit OFFSET $offset";
       $Blogresult = mysqli_query($conn, $blogs);
       $Blogtotal = mysqli_num_rows($Blogresult);
       // If there are no results in the database...
@@ -52,9 +52,19 @@
           <h6>Posted in
             <?php
               foreach ($category as $cat ) {
-                ?>
-                  <a href=""><?php print_r($cat.' '); ?></a>
-                <?php
+                if (sizeof($category)>1) {
+                  $nxt = '/';
+                  ?>
+                    <a href=""><?php print_r($cat); ?></a>
+                    <p class='nxt'><?php echo $nxt ?></p>
+                  <?php
+                }else
+                {
+                  ?>
+                    <a href=""><?php print_r($cat); ?></a>
+                  <?php
+                }
+
               }
              ?>
           </h6>
@@ -63,6 +73,7 @@
             <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><p><?php echo $row['post_title'] ?> </p></a>
             <!-- <p class='featured_body'> <?php echo $row['post_body'] ?> </p> -->
           </div>
+          <p><?php echo $row['post_date'] ?></p>
         </div>
       <?php
     }

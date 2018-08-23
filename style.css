@@ -562,6 +562,12 @@ div#paging span, div#paging a {
     background: #e0e3ea;
     padding: 0px 17px; }
 
+.nxt {
+  display: inline; }
+
+.nxt:last-child {
+  display: none; }
+
 #footer {
   position: relative;
   top: 100%;
