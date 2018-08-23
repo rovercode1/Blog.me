@@ -96,7 +96,7 @@
               }
             ?>
             <div class="container view-more" >
-              <a href="#">View More</a>
+              <a href="archive.php">View More</a>
             </div>
           </div>
         </div>

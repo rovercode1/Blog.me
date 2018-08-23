@@ -1,0 +1,27 @@
+.archive-block
+{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  img
+  {
+    max-width: 160px;
+  }
+  p
+  {
+    padding-left: 20px;
+  }
+}
+.blog
+{
+  border-top: 1px solid #ededed;
+  padding: 14px 4px 7px 5px;
+  border-right: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  h6
+  {
+    display: inline;
+    background: #e0e3ea;
+    padding: 0px 17px;
+  }
+}
