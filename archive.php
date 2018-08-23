@@ -42,14 +42,14 @@
         <?php
       }else{
         ?>
-        <div class="container-fluid">
+        <div class="container">
           <div class="row">
             <div class="col-lg-6">
         <?php
     while ($row = mysqli_fetch_assoc($Blogresult)) {
       $category = explode(',',$row['category']);?>
-        <div class="container blog">
-          <h6>Posted in
+        <div class=" blog">
+          <h6 class='tag'>Posted in
             <?php
               foreach ($category as $cat ) {
                 if (sizeof($category)>1) {
@@ -71,13 +71,20 @@
           <div class="archive-block">
             <img src="uploads/blogs/<?php echo $row['post_image'] ?>" alt="">
             <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><p><?php echo $row['post_title'] ?> </p></a>
-            <!-- <p class='featured_body'> <?php echo $row['post_body'] ?> </p> -->
           </div>
-          <p><?php echo $row['post_date'] ?></p>
+          <p class='tag'><?php echo $row['post_date'] ?></p>
         </div>
       <?php
     }
     ?>
+    </div>
+    <div class="col-lg-6">
+      <h1 class='main-header'>View By Category</h1>
+      <div class="">
+        <?php
+          $sql = "SELECT * blogs WHERE"
+         ?>
+      </div>
     </div>
   </div>
 </div>

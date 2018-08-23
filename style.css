@@ -20,11 +20,6 @@ a {
 #signup {
   max-width: 800px; }
 
-.tag {
-  color: #898989;
-  font-size: 22px;
-  font-family: 'Open Sans'; }
-
 a.btn.btn-warning.btn-sm {
   background: #eeeeee;
   border: 0px; }
@@ -367,7 +362,7 @@ header {
     font-size: 20px;
     border: 1px solid;
     padding: 1px 10px;
-    border-radius: 6px; }
+    border-radius: 3px; }
 
 @media (max-width: 768px) {
   .blog_desc {
@@ -557,10 +552,12 @@ div#paging span, div#paging a {
   padding: 14px 4px 7px 5px;
   border-right: 1px solid #ededed;
   border-left: 1px solid #ededed; }
-  .blog h6 {
+  .blog .tag {
     display: inline;
     background: #e0e3ea;
-    padding: 0px 17px; }
+    padding: 0px 5px;
+    border-radius: 2px;
+    border: 1px solid #ddd; }
 
 .nxt {
   display: inline; }
@@ -568,6 +565,10 @@ div#paging span, div#paging a {
 .nxt:last-child {
   display: none; }
 
+@media (max-width: 530px) {
+  .archive-block {
+    flex-direction: column;
+    align-items: center; } }
 #footer {
   position: relative;
   top: 100%;

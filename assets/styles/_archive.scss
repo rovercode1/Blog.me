@@ -18,11 +18,13 @@
   padding: 14px 4px 7px 5px;
   border-right: 1px solid #ededed;
   border-left: 1px solid #ededed;
-  h6
+  .tag
   {
     display: inline;
     background: #e0e3ea;
-    padding: 0px 17px;
+    padding: 0px 5px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
   }
 }
 
@@ -34,4 +36,12 @@
 .nxt:last-child
 {
   display: none;
+}
+
+@media(max-width:530px){
+  .archive-block
+  {
+    flex-direction: column;
+    align-items: center;
+  }
 }
