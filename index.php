@@ -1,30 +1,7 @@
 <?php  include 'header.php';?>
 <section id='main-site'>
     <!-- <h1>hotspot</h1> -->
-    <div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <form class="" action="includes/index/login.inc.php" method="POST">
-            <label>Username/E-mail</label>
-              <input class="form-control"type="text" name="uid" placeholder="Username/E-mail">
-              <label>Password</label>
-              <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
-              <button class="btn btn-primary btn-sm"type="submit" name="submit">Sign In</button>
-            </form>
-          </div>
-          <div class="modal-footer">
-            <a class="btn btn-warning btn-sm"href="signup.php">Need an account? Sign Up!</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <div class="top-story">
       <div class="container">
         <div class="row">
