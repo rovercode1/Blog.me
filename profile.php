@@ -13,11 +13,13 @@
     header("Location: http://localhost/news-website/index.php?user=nouser");
     exit();
   }else{
-    $row = mysqli_fetch_assoc($result);?>
+    $row = mysqli_fetch_assoc($result);
+    $img = $row['user_av'];
+    ?>
     <div class="container-fluid">
       <div class='container' id="user-box">
         <div class="img">
-          <img src="https://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" alt="">
+          <img src="uploads/users/<?php echo $img ?>" alt="">
         </div>
         <div id="user">
           <h1> <em><?php echo $row['user_first']?> <?php echo $row['user_last']?></em>
