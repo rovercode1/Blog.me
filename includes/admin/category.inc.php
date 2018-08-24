@@ -20,7 +20,28 @@ if (isset($_SESSION['u_id'])) {
           else{
           $sql = "INSERT INTO category (Category) VALUES ('$name');";
           mysqli_query($conn, $sql);
-          header("Location: ../../admin.php?success");}
+          $category = "SELECT * FROM `Category`";
+          $catResults = mysqli_query($conn, $category);
+          $checkCat = mysqli_num_rows($catResults);
+          if ($checkCat < 1) {
+            header("Location: ../../admin.php?category=false");
+            exit();
+          }else{
+            while ($row = mysqli_fetch_assoc($catResults)) {
+              $categoryName = $row['Category'];
+              $categoryCount = $row['count'];
+              $newCount = "SELECT COUNT(`category`) AS `$categoryName` FROM `blogs` WHERE `category` LIKE '%$categoryName%'";
+                $countResult = mysqli_query($conn, $newCount);
+                while ($count = mysqli_fetch_assoc($countResult)) {
+                  $nCount = $count[`$categoryName`];
+                  $sql = "UPDATE `category` SET `count` = '$nCount' WHERE `category`.`Category` = '$categoryName';";
+                  mysqli_query($conn, $sql);
+                  header("Location: ../../admin.php?success");
+                }
+              }
+            }
+          }
+
       }else{
       header("Location: ../../index.php");
       exit();}

@@ -42,6 +42,9 @@ a.btn.btn-warning.btn-sm {
 .left-border {
   border-left: 1px solid #ddd; }
 
+.fade:not(.show) {
+  display: none; }
+
 nav {
   z-index: 1;
   border-bottom: 1px solid #ddd; }
@@ -61,9 +64,9 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
     margin-top: 10px; }
 
 a.nav-link {
-  color: #898989 !important; }
+  color: #898989; }
   a.nav-link:hover {
-    color: #000 !important; }
+    color: #000; }
 
 @media (max-width: 990px) {
   form.main-form {
@@ -569,6 +572,10 @@ div#paging span, div#paging a {
   .archive-block {
     flex-direction: column;
     align-items: center; } }
+#list-category ul {
+  padding: 0px;
+  margin-top: 30px; }
+
 #footer {
   position: relative;
   top: 100%;

@@ -64,3 +64,7 @@ a.btn.btn-warning.btn-sm
 {
   border-left: 1px solid #ddd;
 }
+
+.fade:not(.show) {
+    display: none;
+}
