@@ -1,12 +1,8 @@
 <?php include 'header.php';
   $sql = "SELECT * FROM blogs";
-  // result = what is found in the database
   $result = mysqli_query($conn, $sql);
   $total = mysqli_num_rows($result);
-  // If there are no results in the database...
   if ($total < 1) {
-      // header("Location: ../../index.php?blog=error");
-      // exit();
     ?>
       <p>Blog not found.</p>
     <?php
@@ -27,71 +23,60 @@
         //returns the lowest value in that array
       $end = min(($offset + $limit), $total);
       // The "back" link
-      $prevlink = ($page > 1) ? '<a href="?page=1&title="First page">&laquo;</a> <a href="?page=' . ($page - 1) . '" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
+      $search = $_GET['s'];
+      $Url = 'http://localhost/news-website/archive.php?s=';
+      $prevlink = ($page > 1) ? '<a href="'.$Url.$search.'&page=1title="First page">&laquo;</a> <a href=" '.$Url.$search.'&page=' . ($page - 1).'" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
       // The "forward" link
-      $nextlink = ($page < $pages) ? '<a href="?page=' . ($page + 1).'"title="Next page">&rsaquo;</a> <a href="?page=' . $pages . '" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
-
-      $blogs ="SELECT * FROM blogs ORDER BY `post_id` DESC LIMIT $limit OFFSET $offset";
+      $nextlink = ($page < $pages) ? '<a href="'.$Url.$search.'&page=' . ($page + 1).'" title="Next page">&rsaquo;</a> <a href="'.$Url.$search.'&page=' . ($page + 1).'" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
+      if ($search == 'all') {
+        $filter = "";
+      }else{
+        $filter = "WHERE `category` LIKE '%$search%'";
+      }
+      $blogs ="SELECT * FROM `blogs` $filter ORDER BY `post_id` DESC LIMIT $limit";
       $Blogresult = mysqli_query($conn, $blogs);
       $Blogtotal = mysqli_num_rows($Blogresult);
-      // If there are no results in the database...
       if ($Blogtotal < 1) {
         ?>
           <p>Blog not found.</p>
         <?php
-      }else{
-        ?>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-        <?php
-    while ($row = mysqli_fetch_assoc($Blogresult)) {
-      $category = explode(',',$row['category']);?>
-        <div class=" blog">
-          <h6 class='tag'>Posted in
-            <?php
-              foreach ($category as $cat ) {
-                if (sizeof($category)>1) {
-                  $nxt = '/';
+      }else{?>
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6">
+          <?php while ($row = mysqli_fetch_assoc($Blogresult)) {
+            $category = explode(',',$row['category']);?>
+            <div class=" blog">
+              <h6 class='tag'>Posted in
+              <?php foreach ($category as $cat ) {
+                if (sizeof($category) > 1) {
                   ?>
-                    <a href=""><?php print_r($cat); ?></a>
-                    <p class='nxt'><?php echo $nxt ?></p>
+                    <a href='<?php echo $Url.$cat?>'><?php print_r($cat)?></a>
+                    /
                   <?php
-                }else
-                {
-                  ?>
-                    <a href=""><?php print_r($cat); ?></a>
+                }elseif (sizeof($category)==1) {?>
+                    <a href='<?php echo $Url.$cat?>'><?php print_r($cat)?></a>
                   <?php
                 }
-
               }
-             ?>
-          </h6>
-          <div class="archive-block">
-            <img src="uploads/blogs/<?php echo $row['post_image'] ?>" alt="">
-            <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><p><?php echo $row['post_title'] ?> </p></a>
+              ?>
+              </h6>
+              <div class="archive-block">
+                <img src="uploads/blogs/<?php echo $row['post_image'] ?>" alt="">
+                <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><p><?php echo $row['post_title'] ?> </p></a>
+              </div>
+              <p class='tag'><?php echo $row['post_date'] ?></p>
+              </div>
+            <?php
+              }
+            }?>
           </div>
-          <p class='tag'><?php echo $row['post_date'] ?></p>
+          <!-- Sidebar -->
         </div>
-      <?php
-    }
-    ?>
-    </div>
-    <div class="col-lg-6">
-      <h1 class='main-header'>View By Category</h1>
-      <div class="">
-        <?php
-          $sql = "SELECT * blogs WHERE"
-         ?>
       </div>
-    </div>
-  </div>
-</div>
     <?php
     echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ',
     $nextlink, ' </p></div>';
   }
-
-}
 include 'footer.php'; ?>

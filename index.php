@@ -96,7 +96,7 @@
               }
             ?>
             <div class="container view-more" >
-              <a href="archive.php">View More</a>
+              <a href="archive.php?s=all">View More</a>
             </div>
           </div>
         </div>
@@ -182,7 +182,7 @@
                 }
               ?>
               <div class="container view-more">
-                <a href="#">View More</a>
+                <a href="archive.php?s=Featured">View More</a>
               </div>
               </div>
             </div>
