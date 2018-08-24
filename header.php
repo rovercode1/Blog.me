@@ -33,12 +33,18 @@
               while($row = mysqli_fetch_assoc($result)){
                 $author = $row['author'];
                 $priv = $row['priv'];
-                if ($priv > 0) {
+                if ($priv >= 1) {
                   ?>
-                    <li class="nav-item active">
+                    <li class="nav-item ">
                       <a class="nav-link" href="blog_form.php">Post New Blog</a>
                     </li>
                     <?php
+                }if ($priv == 2) {
+                  ?>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="admin.php">Dashboard</a>
+                  </li>
+                  <?php
                 }
               }
             }?>
