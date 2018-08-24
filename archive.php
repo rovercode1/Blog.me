@@ -73,9 +73,63 @@
             }?>
           </div>
           <!-- Sidebar -->
+          <div class="col-lg-6">
+            <?php $category = "SELECT * FROM `category`";
+            $catResults = mysqli_query($conn, $category);
+            $catResultCheck = mysqli_num_rows($catResults);
+            if ($catResultCheck < 1){
+            ?>
+              <p>No Result(s)</p>
+            <?php
+            }else {
+              ?>
+              <div class="tab-pane fade show active" id="list-category" role="tabpanel" aria-labelledby="list-category-list">
+                <!-- All Posts -->
+                <li class="list-group-item d-flex justify-content-between align-items-center">
+                  <a href="archive.php?s=all">
+                    All
+                  </a>
+                  <span class="badge badge-primary badge-pill"><?php echo $catResultCheck ?></span>
+                </li>
+                <ul class="list-group"><?php
+                  while($rowCat = mysqli_fetch_assoc($catResults)){?>
+                    <?php $categoryName = $rowCat['Category'];
+                    $categoryCount = $rowCat['count'];
+                    $newCount = "SELECT COUNT(`category`) AS `$categoryName` FROM `blogs` WHERE `category` LIKE '%$categoryName%'";
+                    $countResult = mysqli_query($conn, $newCount);
+                    while ($count = mysqli_fetch_assoc($countResult)) {
+                      $nCount = $count[$categoryName];
+                      $sql = "UPDATE `category` SET `count` = '$nCount' WHERE `category`.`Category` = '$categoryName';";
+                      mysqli_query($conn, $sql);
+                      ?>
+                        <li class="list-group-item d-flex justify-content-between align-items-center">
+                          <a href="archive.php?s=<?php echo $rowCat['Category']?>">
+                            <?php echo $rowCat['Category']?>
+                          </a>
+                          <span class="badge badge-primary badge-pill"><?php echo $nCount ?></span>
+                        </li>
+                    <?php }
+
+                  }?>
+                </ul>
+              </div>
+              <?php
+            }?>
+            <div class="tab-pane fade" id="list-user" role="tabpanel" aria-labelledby="list-user-list">
+            <h1>jsjsjsjjs</h1>
+            </div>
+            <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">
+
+            </div>
+            <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">
+
+            </div>
+          </div>
         </div>
       </div>
-    <?php
+    </div>
+  </div>
+<?php
     echo '<div id="paging"><p>', $prevlink, ' Page ', $page, ' of ', $pages, ' pages, displaying ', $start, '-', $end, ' of ', $total, ' results ',
     $nextlink, ' </p></div>';
   }
