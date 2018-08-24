@@ -67,6 +67,22 @@
                 <a href="blogs.php <?php echo '?blog='. $row['post_id']?>" ><p><?php echo $row['post_title'] ?> </p></a>
               </div>
               <p class='tag'><?php echo $row['post_date'] ?></p>
+              <?php
+                $user_id = $row['post_author'];
+                $sql = "SELECT * FROM users WHERE `user_id` = $user_id";
+                $result = mysqli_query($conn, $sql);
+                $resultCheck = mysqli_num_rows($result);
+                if ($resultCheck < 1) {
+                  header("Location: index.php?user=false");
+                  exit();
+                }else{
+                  while ($userrow = mysqli_fetch_assoc($result)) {
+                  ?>
+                  <p class='tag'>Posted by <a href="profile.php?user=<?php echo $user_id ?>"> <?php echo $userrow['user_uid'] ?></a></p>
+                  <?php
+                  }
+                }
+               ?>
               </div>
             <?php
               }
@@ -109,7 +125,6 @@
                           <span class="badge badge-primary badge-pill"><?php echo $nCount ?></span>
                         </li>
                     <?php }
-
                   }?>
                 </ul>
               </div>
