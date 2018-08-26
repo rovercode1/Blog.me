@@ -30,18 +30,25 @@ if (!isset($_SESSION['u_id'])) {
                         ?>
                           <li class='li-item'>Featured</li>
                           <li class='li-item'>Top</li>
+                          <p></p>
                         <?php
                       }
+                      $sql = "SELECT * FROM category";
+                      $result = mysqli_query($conn, $sql);
+                      $check = mysqli_num_rows($result);
+                      if ($check < 1) {
+                        header("Location: blog_form?category=null");
+                        exit();
+                      }else{
+
+                        while ($row = mysqli_fetch_assoc($result)){?>
+                          <?php if ($row['Category'] != 'Top' && $row['Category'] != 'Featured'){ ?>
+                            <li class='li-item'><?php echo $row['Category'] ?></li>
+                          <?php } ?>
+                          <?php
+                        }
+                      }
                     ?>
-                    <li class='li-item'>Politics</li>
-                    <li class='li-item'>World</li>
-                    <li class='li-item'>Ideas</li>
-                    <li class='li-item'>Tech</li>
-                    <li class='li-item'>Entertainment</li>
-                    <li class='li-item'>Health</li>
-                    <li class='li-item'>Sport</li>
-                    <li class='li-item'>Movies</li>
-                    <li class='li-item'>Music</li>
                   </ul>
                 </div>
             <!-- <input class="form-control"type="text" name="category" placeholder="Blog Category" required> -->
