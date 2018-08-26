@@ -19,6 +19,7 @@ if (isset($_SESSION['u_id'])) {
       $row = mysqli_fetch_assoc($result);
       // Delete the user in the database
       $sql = "DELETE FROM `users` WHERE `users`.`user_id` = $user_id;";
+      unlink('../../uploads/blogs/'.$row['user_av']);
       mysqli_query($conn, $sql) or die(mysqli_error($conn));
       header("Location: http://localhost/project-website/index.php?delete_user=success");
       exit();
