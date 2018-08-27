@@ -19,7 +19,7 @@ if (isset($_SESSION['u_id'])) {
   <div class="container-fluid">
     <div class='container' id="user-box">
       <form class="" action="includes/users/update_profile.inc.php" method="post" enctype="multipart/form-data">
-          Send this file: <input name="user_av" type="file">
+          Send this file: <input name="UploadImage" type="file">
         <input id='uid-edit'class='form-control'type="text" name="uid" value="<?php echo $row['user_uid']?>">
         <input type="text" id='about-edit' class='form-control'name="about" value="<?php echo $row['user_about'] ?>">
         <div class="collapse" id="moreSettings">

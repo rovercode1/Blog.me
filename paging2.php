@@ -8,8 +8,6 @@ if (isset($_SESSION['u_id'])) {
     $total = mysqli_num_rows($result);
     // If there are no results in the database...
     if ($total < 1) {
-        // header("Location: ../../index.php?blog=error");
-        // exit();
       ?>
         <p>Blog not found.</p>
       <?php

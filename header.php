@@ -1,6 +1,5 @@
 <?php session_start();
-  include_once 'includes/dbh.inc.php';
-?>
+  include_once 'includes/dbh.inc.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -20,7 +19,7 @@
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <div class="container">
-        <a class="navbar-brand" href="index.php">Blog.com</a>
+        <a class="navbar-brand" href="index.php">hotspot.com</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
@@ -28,11 +27,27 @@
           <ul class="navbar-nav mr-auto">
             <?php
             if (isset($_SESSION['u_id'])) {
-              ?>
-            <li class="nav-item active">
-              <a class="nav-link" href="blog_form.php">Post New Blog</a>
-            </li>
-          <?php }?>
+              $id = $_SESSION['u_id'];
+              $sql = "SELECT * FROM `user_priv` WHERE id = $id";
+              $result = mysqli_query($conn, $sql);
+              while($row = mysqli_fetch_assoc($result)){
+                $author = $row['author'];
+                $priv = $row['priv'];
+                if ($priv >= 1) {
+                  ?>
+                    <li class="nav-item ">
+                      <a class="nav-link" href="blog_form.php">Post New Blog</a>
+                    </li>
+                    <?php
+                }if ($priv == 2) {
+                  ?>
+                  <li class="nav-item ">
+                    <a class="nav-link" href="admin.php">Dashboard</a>
+                  </li>
+                  <?php
+                }
+              }
+            }?>
           </ul>
 
           <ul class="navbar-nav ml-auto">
@@ -40,7 +55,7 @@
             if (isset($_SESSION['u_id'])) {
               ?>
               <li class="nav-item active">
-                <a class="nav-link" href="http://localhost/project-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
+                <a class="nav-link" href="http://localhost/news-website/profile.php?user=<?php echo $_SESSION['u_id']?>">Hello, <?php echo $_SESSION['u_uid'] ?>! </a>
               </li>
               <form  action="includes/index/logout.inc.php" method="POST">
                 <button class="btn btn-warning btn-sm"type="submit" name="submit">Log Out</button>
@@ -59,3 +74,27 @@
         </div>
       </div>
     </nav>
+    <div class="modal fade" id="logginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form class="" action="includes/index/login.inc.php" method="POST">
+            <label>Username/E-mail</label>
+              <input class="form-control"type="text" name="uid" placeholder="Username/E-mail">
+              <label>Password</label>
+              <input class="form-control"type="password" name="pwd" placeholder='Enter Your Password'>
+              <button class="btn btn-primary btn-sm"type="submit" name="submit">Sign In</button>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <a class="btn btn-warning btn-sm"href="signup.php">Need an account? Sign Up!</a>
+          </div>
+        </div>
+      </div>
+    </div>

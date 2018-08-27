@@ -1,6 +1,6 @@
 <?php include 'header.php';
 // If user is signed in
-if (isset($_SESSION['u_id'])) {
+// if (isset($_SESSION['u_id'])) {
   $user_id = $_GET['user'];
   // If user is logged in...
   // Find the user in database
@@ -10,24 +10,35 @@ if (isset($_SESSION['u_id'])) {
   $resultCheck = mysqli_num_rows($result);
   // If there are no results in the database...
   if ($resultCheck < 1) {
-    header("Location: http://localhost/project-website/index.php?user=nouser");
+    header("Location: http://localhost/news-website/index.php?user=nouser");
     exit();
   }else{
-    $row = mysqli_fetch_assoc($result);?>
+    $row = mysqli_fetch_assoc($result);
+    $img = $row['user_av'];
+    ?>
     <div class="container-fluid">
       <div class='container' id="user-box">
         <div class="img">
-          <img src="https://www.mycustomer.com/sites/all/themes/pp/img/default-user.png" alt="">
+          <img src="uploads/users/<?php echo $img ?>" alt="">
         </div>
         <div id="user">
-          <h1> <em><?php echo $row['user_uid']?></em>  <?php if ($_SESSION['u_id'] == $row['user_id']): ?>
-            <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
-          <?php endif; ?></h1>
+          <h1> <em><?php echo $row['user_first']?> <?php echo $row['user_last']?></em>
+            <?php
+            $id = $_SESSION['u_id'];
+            $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
+            $privResult = mysqli_query($conn, $privsql);
+
+            $privRow = mysqli_fetch_assoc($privResult);
+            $userpriv = $privRow['priv'];
+           if ($_SESSION['u_id'] == $row['user_id'] || $userpriv = 2): ?>
+              <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
+              <?php endif;
+             ?>
+           </h1>
           <p> <?php echo $row['user_about'] ?> </p>
         </div>
       </div>
-      <?php
-        $user_id = $_GET['user'];
+      <?php $user_id = $_GET['user'];
         $sql = "SELECT * FROM blogs WHERE `post_author` = $user_id";
         // result = what is found in the database
         $result = mysqli_query($conn, $sql);
@@ -54,7 +65,7 @@ if (isset($_SESSION['u_id'])) {
               //returns the lowest value in that array
             $end = min(($offset + $limit), $total);
             // The "back" link
-            $profileUrl = 'http://localhost/project-website/profile.php?user=';
+            $profileUrl = 'http://localhost/news-website/profile.php?user=';
             $prevlink = ($page > 1) ? '<a href="'.$profileUrl.$user_id.'&page=1title="First page">&laquo;</a> <a href=" '.$profileUrl.$user_id.'&page=' . ($page - 1).'" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
             // The "forward" link
@@ -100,10 +111,10 @@ if (isset($_SESSION['u_id'])) {
     </div>
     <?php
     }
-  }
-  else{
-    header("Location: ../../index.php");
-    exit();
-  }
+  // }
+  // else{
+  //   header("Location: ../../index.php");
+  //   exit();
+  // }
 include 'footer.php';
 ?>

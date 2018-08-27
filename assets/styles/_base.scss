@@ -1,4 +1,12 @@
+body
+{
+  font-family: 'Roboto',sans-serif!important;
+}
 
+a
+{
+  color: #60adff;
+}
 .main-wrapper
 {
   border: 1px solid #efefef;
@@ -21,13 +29,6 @@
   max-width: 800px;
 }
 
-.tag
-{
-  color: #898989;
-   font-size: 22px;
-   font-family: 'Open Sans';
-}
-
 a.btn.btn-warning.btn-sm
 {
   background: #eeeeee;
@@ -41,5 +42,29 @@ a.btn.btn-warning.btn-sm
 .main-header
 {
   text-align: center;
-  font-family: Roboto, sans-serif;
+  font-size: 30px;
+}
+
+.img
+{
+  max-width: 150px;
+  margin-right: 30px;
+  img
+  {
+    max-width: 100%;
+  }
+}
+
+.right-border
+{
+  border-right: 1px solid #ddd;
+}
+
+.left-border
+{
+  border-left: 1px solid #ddd;
+}
+
+.fade:not(.show) {
+    display: none;
 }

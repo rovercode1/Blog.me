@@ -1,3 +1,7 @@
+nav
+{
+  margin-bottom: 20px;
+}
 div#user-box {
     margin-bottom: 30px;
     display: flex;
@@ -94,24 +98,6 @@ div#user-box {
   margin: 8px 0px;
 }
 
-.img
-{
-  border: 1px solid #000;
-  padding: 0px;
-  border-radius: 131px;
-  max-width: 97px;
-  background: #fff;
-  margin-right: 30px;
-  img
-  {
-    max-width: 100%;
-    left: 0px;
-    top: 0px;
-    z-index: -1;
-    border-radius: 97px;
-
-  }
-}
 
 #paging
 {

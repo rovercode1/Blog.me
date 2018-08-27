@@ -1,0 +1,51 @@
+.archive-block
+{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  img
+  {
+    max-width: 160px;
+  }
+  p
+  {
+    padding-left: 20px;
+  }
+}
+.blog
+{
+  border-top: 1px solid #ededed;
+  padding: 14px 4px 7px 5px;
+  border-right: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  display: flex;
+  align-items: end;
+  flex-direction: column;
+  .tag
+  {
+    display: inline;
+    background: #e0e3ea;
+    padding: 0px 5px;
+    border-radius: 2px;
+    border: 1px solid #ddd;
+    margin-bottom: 3px;
+  }
+}
+
+.nxt
+{
+  display: inline;
+}
+
+.nxt:last-child
+{
+  display: none;
+}
+
+@media(max-width:530px){
+  .archive-block
+  {
+    flex-direction: column;
+    align-items: center;
+  }
+}

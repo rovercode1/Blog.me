@@ -84,7 +84,7 @@ if (isset($_SESSION['u_id'])) {
   }
 }else
 {
-  header("Location: http://localhost/project-website/index.php?user=notloggedin");
+  header("Location: http://localhost/news-website/index.php?user=notloggedin");
   exit();
 }
 

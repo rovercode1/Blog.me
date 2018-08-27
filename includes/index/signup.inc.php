@@ -42,8 +42,24 @@ if (isset($_POST['submit'])) {
             // Insert the user into the database
           $sql = "INSERT INTO users (user_first, user_last, user_email, user_uid, user_pwd) VALUES ( '$first', '$last', '$email', '$uid', '$hashedpwd');";
           mysqli_query($conn, $sql);
-          header("Location: ../../index.php?signup=success");
-          exit();
+          // User Privileges
+          $user = "SELECT * FROM users WHERE user_uid = '$uid'";
+
+          $userResult = mysqli_query($conn, $user);
+          $checkUserResult = mysqli_num_rows($userResult);
+
+          if ($checkUserResult > 0) {
+            $row = mysqli_fetch_assoc($userResult);
+            $user_id = $row['user_id'];
+            $author = $row['user_uid'];
+            $priv = "INSERT INTO `user_priv`(`id`, `priv`,`author`) VALUES ($user_id,0,'$author')";
+            mysqli_query($conn, $priv);
+            header("Location: ../../index.php?signup=success");
+            exit();
+          }else{
+              header("Location: ../../index.php?signup=error");
+          }
+
         }
       }
     }
