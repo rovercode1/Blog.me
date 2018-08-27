@@ -38,8 +38,7 @@
           <p> <?php echo $row['user_about'] ?> </p>
         </div>
       </div>
-      <?php
-        $user_id = $_GET['user'];
+      <?php $user_id = $_GET['user'];
         $sql = "SELECT * FROM blogs WHERE `post_author` = $user_id";
         // result = what is found in the database
         $result = mysqli_query($conn, $sql);

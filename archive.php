@@ -39,7 +39,10 @@
       $Blogtotal = mysqli_num_rows($Blogresult);
       if ($Blogtotal < 1) {
         ?>
-          <p>Blog not found.</p>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-6">
+          <h5 class='text-center'>Blog(s) not found.</h5>
         <?php
       }else{?>
       <div class="container">
