@@ -1,5 +1,8 @@
 <?php include 'header.php';
 $url = 'http://localhost/news-website/admin.php?tab=';
+if (!isset($_GET['tab'])) {
+  header("Location: http://localhost/news-website/admin.php?tab=category");
+}
 ?>
 <div class="container">
   <div class="row">
@@ -15,7 +18,6 @@ $url = 'http://localhost/news-website/admin.php?tab=';
       <a class="list-group-item list-group-item-action" id="list-settings-list"  href="<?php echo $url ?>settings" role="tab" onclick="tabTrigger(event,'settings')">Settings</a>
       </div>
       <?php
-        include 'includes/admin/tabs.inc.php';
        ?>
     </div>
     <div class="col-lg-8">
@@ -39,7 +41,7 @@ $url = 'http://localhost/news-website/admin.php?tab=';
               }else {
               ?>
                 <div class="tab-pane fade show active" id="list-category" role="tabpanel" aria-labelledby="list-category-list">
-                  <form action="includes/admin/category.inc.php" method="post">
+                  <form action="includes/admin/category/new_category.inc.php" method="post">
                     <input class='form-control'type="text" name="name" placeholder="New Category">
                     <button class='btn btn-primary'type="submit" name="submit">Submit</button>
                   </form>
@@ -59,6 +61,9 @@ $url = 'http://localhost/news-website/admin.php?tab=';
                           <?php echo $rowCat['Category']?>
                           </a>
                           <span class="badge badge-primary badge-pill"><?php echo $nCount ?></span>
+                          <span id='cat-delete'> <form class="" action="includes/admin/category/delete_category.inc.php?c=<?php echo $rowCat['Category'] ?>" method="post">
+                            <button type="submit" name="submit"></button>
+                          </form> </span>
                         </li>
                     <?php } }?>
                   </ul>
@@ -77,7 +82,7 @@ $url = 'http://localhost/news-website/admin.php?tab=';
                     <p>Blog not found.</p>
                   <?php
                 }else{
-                    $limit = 2;
+                    $limit = 8;
                     $pages = ceil($total / $limit);
                     $page = min($pages, filter_input(INPUT_GET, 'page', FILTER_VALIDATE_INT, array(
                         'options' => array(
@@ -116,7 +121,9 @@ $url = 'http://localhost/news-website/admin.php?tab=';
                     ?>
                       <div class="row">
                         <div class="col-lg-12">
-                          <h4><?php echo $rowuser['user_uid'] ?></h4>
+                            <a href="profile.php?user=<?php echo $rowuser['user_id'] ?>">
+                              <h4> <?php echo $rowuser['user_first'] .' '. $rowuser['user_last'] ?>(<?php echo $rowuser['user_uid'] ?>)</h4>
+                            </a>
                         </div>
                       </div>
                     <?php
@@ -148,5 +155,8 @@ $url = 'http://localhost/news-website/admin.php?tab=';
     ?>
   </div>
 </div>
-
+<script type="text/javascript" src='assets/js/tabs.js'></script>
+<script type="text/javascript">
+  tabTrigger();
+</script>
 <?php include 'footer.php'?>

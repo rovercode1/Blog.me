@@ -580,6 +580,22 @@ div#paging span, div#paging a {
   padding: 0px;
   margin-top: 30px; }
 
+li.list-group-item.d-flex.justify-content-between.align-items-center {
+  display: flex;
+  justify-content: center; }
+  li.list-group-item.d-flex.justify-content-between.align-items-center a {
+    flex: 1; }
+
+#cat-delete form button {
+  width: 17px;
+  height: 21px;
+  margin: 0px 10px;
+  background: url(https://image.flaticon.com/icons/svg/61/61848.svg);
+  background-position: center;
+  background-size: cover;
+  border: 0px;
+  cursor: pointer; }
+
 #footer {
   position: relative;
   top: 100%;
