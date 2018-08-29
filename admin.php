@@ -1,13 +1,22 @@
-<?php include 'header.php';?>
+<?php include 'header.php';
+$url = 'http://localhost/news-website/admin.php?tab=';
+?>
 <div class="container">
   <div class="row">
     <div class="col-lg-4">
       <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-category-list" data-toggle="list" href="#list-category" role="tab" aria-controls="home">Category</a>
-      <a class="list-group-item list-group-item-action" id="list-user-list" data-toggle="list" href="#list-user" role="tab" aria-controls="user">Users</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+
+      <a class="list-group-item list-group-item-action active" id="list-category-list"  href="<?php echo $url ?>category" role="tab" onclick="tabTrigger(event,'category')">Category</a>
+
+      <a class="list-group-item list-group-item-action" id="list-user-list"  href="<?php echo $url ?>user" role="tab" onclick="tabTrigger(event,'users')">Users</a>
+
+      <a class="list-group-item list-group-item-action" id="list-messages-list"  href="<?php echo $url ?>messages" role="tab" onclick="tabTrigger(event,'messages')">Messages</a>
+
+      <a class="list-group-item list-group-item-action" id="list-settings-list"  href="<?php echo $url ?>settings" role="tab" onclick="tabTrigger(event,'settings')">Settings</a>
       </div>
+      <?php
+        include 'includes/admin/tabs.inc.php';
+       ?>
     </div>
     <div class="col-lg-8">
       <div class="tab-content" id="nav-tabContent">
@@ -84,7 +93,7 @@
                       //returns the lowest value in that array
                     $end = min(($offset + $limit), $total);
                     // The "back" link
-                    $profileUrl = 'http://localhost/news-website/admin.php?list-user';
+                    $profileUrl = 'http://localhost/news-website/admin.php?tab=user';
                     $prevlink = ($page > 1) ? '<a href="'.$profileUrl.'&page=1title="First page">&laquo;</a> <a href=" '.$profileUrl.'&page=' . ($page - 1).'" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
                     // The "forward" link
@@ -129,10 +138,10 @@
         }else{
         header('Location: index.php?user=false');
         exit();}
-      }
-    }else{
-    header('Location: index.php?user=false');
-    exit();}
+        }
+      }else{
+      header('Location: index.php?user=false');
+      exit();}
     }else{
     header('Location: index.php?loggin=false');
     exit();}
