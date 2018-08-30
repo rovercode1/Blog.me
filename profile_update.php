@@ -13,12 +13,16 @@ if (isset($_SESSION['u_id'])) {
     $row = mysqli_fetch_assoc($result);
     // If the current user is not the author
      // of the blog, redirect to home page.
-    if($_SESSION['u_id'] == $row['user_id']){
+     $userPriv = "SELECT priv FROM user_priv where `id` = $user_id";
+     $privresult = mysqli_query($conn, $userPriv);
+     $privcheck = mysqli_num_rows($privresult);
+     while ($userpriv = mysqli_fetch_assoc($privresult)) {
+       if($_SESSION['u_id'] == $row['user_id'] || $userpriv['priv'] = 2){
 ?>
 <section>
   <div class="container-fluid">
     <div class='container' id="user-box">
-      <form class="" action="includes/users/update_profile.inc.php" method="post" enctype="multipart/form-data">
+      <form class="" action="includes/users/update_profile.inc.php?user=<?php echo $row['user_id'] ?>" method="post" enctype="multipart/form-data">
           Send this file: <input name="UploadImage" type="file">
         <input id='uid-edit'class='form-control'type="text" name="uid" value="<?php echo $row['user_uid']?>">
         <input type="text" id='about-edit' class='form-control'name="about" value="<?php echo $row['user_about'] ?>">
@@ -49,6 +53,7 @@ if (isset($_SESSION['u_id'])) {
             <?php
           }else{
             header("Location: index.php?user=error");
+            }
           }
         }
      ?>

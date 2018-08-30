@@ -5,7 +5,8 @@ if (isset($_SESSION['u_id'])) {
   if (isset($_POST['submit'])) {
     include_once '../dbh.inc.php';
     // User inputs
-    $user_id = $_SESSION['u_id'];
+    $currentUser = $_SESSION['u_id'];
+    $user_id = $_GET['user'];
     $first = mysqli_real_escape_string($conn,$_POST['first']);
     $last = mysqli_real_escape_string($conn,$_POST['last']);
     $email = mysqli_real_escape_string($conn,$_POST['email']);
@@ -26,7 +27,7 @@ if (isset($_SESSION['u_id'])) {
         header("Location: ../../update_profile.php?user=invalidemail");
         exit();
       }else{
-        $sql = "SELECT * FROM users WHERE user_uid = $user_uid";
+        $sql = "SELECT user_uid FROM users WHERE user_uid = '$uid'";
         $result = mysqli_query($conn, $sql);
         // Check if there is a user that matches the uid
         $resultCheck = mysqli_num_rows($result);
@@ -36,13 +37,24 @@ if (isset($_SESSION['u_id'])) {
           header("Location: ../../update_profile.php?user=usertaken");
           exit();
         }else{
+          $userPriv = "SELECT priv FROM user_priv where `id` = $currentUser";
+          $privresult = mysqli_query($conn, $userPriv);
+          $privcheck = mysqli_num_rows($privresult);
+          while ($userpriv = mysqli_fetch_assoc($privresult)) {
+            if ($currentUser == $user_id || $userpriv['priv'] = 2 ) {
+              // code...
+          //   }
+          // }
         // Insert the user into the database
         $sql = "UPDATE `users` SET `user_first` = '$first', `user_last` = '$last', `user_email` = '$email', `user_uid` = '$uid', `user_about` = '$about' WHERE `users`.`user_id` = $user_id;";
         mysqli_query($conn, $sql);
-        $_SESSION['u_first'] = $first;
-        $_SESSION['u_last'] = $last;
-        $_SESSION['u_email'] = $email;
-        $_SESSION['u_uid'] = $uid;
+
+        if ($currentUser == $user_id ) {
+          $_SESSION['u_first'] = $first;
+          $_SESSION['u_last'] = $last;
+          $_SESSION['u_email'] = $email;
+          $_SESSION['u_uid'] = $uid;
+        }
 
         $file = $_FILES['UploadImage'];
         $fileName = $_FILES['UploadImage']['name'];
@@ -89,15 +101,18 @@ if (isset($_SESSION['u_id'])) {
             }
           }else {
           echo 'error';}
+              }
+            }else{
+              header("Location: ../../index.php?errorssss");
+              exit();}
+            }
           }
-          }
-        }
       }
     }
-  }else{
-  header("Location: ../../index.php");
-  exit();
   }
+  }else{
+    header("Location: ../../index.php");
+    exit();}
 }else{
 header("Location: ../../index.php");
 exit();
