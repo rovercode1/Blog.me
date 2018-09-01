@@ -121,9 +121,12 @@ if (!isset($_GET['tab'])) {
                     ?>
                       <div class="row">
                         <div class="col-lg-12">
+                          <div id='user-inline'>
                             <a href="profile.php?user=<?php echo $rowuser['user_id'] ?>">
-                              <h4> <?php echo $rowuser['user_first'] .' '. $rowuser['user_last'] ?>(<?php echo $rowuser['user_uid'] ?>)</h4>
+                              <h4> <?php echo $rowuser['user_first'] .' '. $rowuser['user_last'] ?></h4>
                             </a>
+                          <h4>(<?php echo $rowuser['user_uid'] ?>)</h4>
+                        </div>
                         </div>
                       </div>
                     <?php
