@@ -1,5 +1,6 @@
 <?php session_start();
-  include_once 'includes/dbh.inc.php';?>
+  include_once 'includes/dbh.inc.php';
+  include_once 'includes/allvar.php';?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
