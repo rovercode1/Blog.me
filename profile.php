@@ -23,17 +23,17 @@
         </div>
         <div id="user">
           <h1> <em><?php echo $row['user_first']?> <?php echo $row['user_last']?></em>
-            <?php
-            $id = $_SESSION['u_id'];
-            $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
-            $privResult = mysqli_query($conn, $privsql);
+            <?php if (isset($_SESSION['id'])) {
+              $id = $_SESSION['u_id'];
+              $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
+              $privResult = mysqli_query($conn, $privsql);
 
-            $privRow = mysqli_fetch_assoc($privResult);
-            $userpriv = $privRow['priv'];
-           if ($_SESSION['u_id'] == $row['user_id'] || $userpriv = 2): ?>
+              $privRow = mysqli_fetch_assoc($privResult);
+              $userpriv = $privRow['priv'];
+              if ($_SESSION['u_id'] == $row['user_id'] || $userpriv = 2): ?>
               <a href="profile_update.php <?php echo '?user='. $row['user_id']?>" ><i class="fas fa-edit"></i></a>
-              <?php endif;
-             ?>
+            <?php endif;
+            } ?>
            </h1>
           <p> <?php echo $row['user_about'] ?> </p>
         </div>
