@@ -1,5 +1,11 @@
 <?php include 'header.php';
-  $sql = "SELECT * FROM blogs";
+  $search = $_GET['s'];
+  if ($search == 'all') {
+    $filter = "";
+  }else{
+    $filter = "WHERE `category` LIKE '%$search%'";
+  }
+  $sql = "SELECT * FROM blogs $filter";
   $result = mysqli_query($conn, $sql);
   $total = mysqli_num_rows($result);
   if ($total < 1) {
@@ -23,7 +29,7 @@
         //returns the lowest value in that array
       $end = min(($offset + $limit), $total);
       // The "back" link
-      $search = $_GET['s'];
+
       $Url = 'http://localhost/news-website/archive.php?s=';
       $prevlink = ($page > 1) ? '<a href="'.$Url.$search.'&page=1title="First page">&laquo;</a> <a href=" '.$Url.$search.'&page=' . ($page - 1).'" title="Previous page">&lsaquo;</a>' : '<span class="disabled">&laquo;</span> <span class="disabled">&lsaquo;</span>';
 
