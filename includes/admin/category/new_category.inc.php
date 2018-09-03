@@ -2,7 +2,7 @@
 session_start();
 // If submit button has been clicked...
 if (isset($_SESSION['u_id'])) {
-  include_once '../dbh.inc.php';
+  include_once '../../dbh.inc.php';
   $id = $_SESSION['u_id'];
   $privSql = "SELECT * FROM `user_priv` WHERE id = $id";
   $resultPriv = mysqli_query($conn, $privSql);
@@ -14,7 +14,7 @@ if (isset($_SESSION['u_id'])) {
         $author = $_SESSION["u_id"];
         $name = mysqli_real_escape_string($conn,$_POST['name']);
           if (empty($name)){
-            header("Location: ../../admin.php?field=empty");
+            header("Location: $fullUrl/admin.php?tab=category&field=empty");
             exit();
           }
           else{
@@ -24,7 +24,7 @@ if (isset($_SESSION['u_id'])) {
           $catResults = mysqli_query($conn, $category);
           $checkCat = mysqli_num_rows($catResults);
           if ($checkCat < 1) {
-            header("Location: ../../admin.php?category=false");
+            header("Location: $fullUrl/admin.php?tab=category&category=false");
             exit();
           }else{
             while ($row = mysqli_fetch_assoc($catResults)) {
@@ -36,20 +36,20 @@ if (isset($_SESSION['u_id'])) {
                   $nCount = $count[`$categoryName`];
                   $sql = "UPDATE `category` SET `count` = '$nCount' WHERE `category`.`Category` = '$categoryName';";
                   mysqli_query($conn, $sql);
-                  header("Location: ../../admin.php?success");
+                  header("Location: $fullUrl/admin.php?tab=category&new=success");
                 }
               }
             }
           }
 
       }else{
-      header("Location: ../../index.php");
+      header("Location: $fullUrl/index.php");
       exit();}
     }else{
-    header("Location: ../../index.php");
+    header("Location: $fullUrl/index.php");
     exit();}
   }
 }else{
-header("Location: ../../index.php");
+header("Location: $fullUrl/index.php");
 exit();
 }
