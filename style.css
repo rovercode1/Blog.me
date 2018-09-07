@@ -68,6 +68,15 @@ a.nav-link {
   a.nav-link:hover {
     color: #000; }
 
+#admin-bar {
+  padding: 0px;
+  margin: 0px; }
+  #admin-bar ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; }
+
 @media (max-width: 990px) {
   form.main-form {
     flex-direction: column; } }

@@ -33,6 +33,18 @@ a.nav-link
     }
 }
 
+#admin-bar
+{
+  padding: 0px;
+  margin: 0px;
+  ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+}
+
 @media(max-width:990px){
   form.main-form{
     flex-direction: column;
