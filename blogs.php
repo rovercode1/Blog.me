@@ -50,7 +50,7 @@ include 'includes/dbh.inc.php';
         <p>Posted by <a href="http://localhost/news-website/profile.php?user=<?php echo $Userrow['user_id'] ?>"> <em><?php echo $Userrow['user_first'] ?> <?php echo $Userrow['user_last'] ?></em></a> <span><?php echo $row['post_date'] ?></span> </p>
         <div id="buttons">
           <a class='btn btn-primary btn-sm'href="http://localhost/news-website">Back</a>
-<?php if (isset($_SESSION['u_id'])) {?>
+          <?php if (isset($_SESSION['u_id'])) {?>
 
           <?php
           $id = $_SESSION['u_id'];

@@ -23,7 +23,7 @@
         </div>
         <div id="user">
           <h1> <em><?php echo $row['user_first']?> <?php echo $row['user_last']?></em>
-            <?php if (isset($_SESSION['id'])) {
+            <?php if (isset($_SESSION['u_id'])) {
               $id = $_SESSION['u_id'];
               $privsql = "SELECT * FROM `user_priv` WHERE id = $id AND priv >  1";
               $privResult = mysqli_query($conn, $privsql);

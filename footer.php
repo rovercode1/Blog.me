@@ -1,5 +1,5 @@
 <footer id='footer'>
-  <p>© 2018 Copyright: Blog.me</p>
+  <p>© 2018 Copyright: hotspot.com</p>
 </footer>
 <script type="text/javascript" src='assets/js/main.js'></script>
 <script type="text/javascript" src='assets/js/category.js'></script>
