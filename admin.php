@@ -1,9 +1,10 @@
-<?php include 'header.php';
+<?php
 // include 'includes/dbh.inc.php';
 $url = 'http://localhost/news-website/admin.php?tab=';
 if (!isset($_GET['tab'])) {
   header("Location: http://localhost/news-website/admin.php?tab=category");
 }
+include 'header.php';
 if (isset($_SESSION['u_id'])) {
 $user_id = $_SESSION['u_id'];
 $sql = "SELECT * FROM user_priv WHERE `id` = $user_id";

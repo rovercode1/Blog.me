@@ -9,8 +9,14 @@ while ($row = mysqli_fetch_assoc($Blogresult)) {
           <a href='<?php echo $Url.$cat?>'><?php print_r($cat)?></a>
           /
         <?php
-      }elseif (sizeof($category)==1) {?>
+      }elseif (sizeof($category)==1) {
+        ?>
+
           <a href='<?php echo $Url.$cat?>'><?php print_r($cat)?></a>
+        <?php
+      }if (strlen($cat) == 0)  {
+        ?>
+          None
         <?php
       }
     }
@@ -40,5 +46,5 @@ while ($row = mysqli_fetch_assoc($Blogresult)) {
     </div>
   <?php
     }
-  
+
  ?>

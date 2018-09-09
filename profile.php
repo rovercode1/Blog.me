@@ -71,7 +71,7 @@
             // The "forward" link
             $nextlink = ($page < $pages) ? '<a href="'.$profileUrl.$user_id.'&page=' . ($page + 1).'" title="Next page">&rsaquo;</a> <a href="'.$profileUrl.$user_id.'&page=' . ($page + 1).'" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
 
-            $blogs ="SELECT * FROM blogs WHERE `post_author` = $user_id LIMIT $limit OFFSET $offset";
+            $blogs ="SELECT * FROM blogs desc WHERE `post_author` = $user_id LIMIT $limit OFFSET $offset ";
             $Blogresult = mysqli_query($conn, $blogs);
             $Blogtotal = mysqli_num_rows($Blogresult);
             // If there are no results in the database...

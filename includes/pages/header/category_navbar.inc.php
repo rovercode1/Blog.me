@@ -1,5 +1,4 @@
 <?php
-if (isset($_SESSION['u_id'])) {
   $sql = "SELECT Category from category limit 4";
   $result = mysqli_query($conn, $sql);
   while ($row = mysqli_fetch_assoc($result)) {
@@ -10,6 +9,11 @@ if (isset($_SESSION['u_id'])) {
       </a>
     </li>
     <?php
-  }
-}
+  }?>
+  <li class="nav-item">
+    <a href="archive.php?s=all">
+      All
+    </a>
+  </li>
+  <?php
 ?>
