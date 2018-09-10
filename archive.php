@@ -32,7 +32,7 @@ if ($total < 1) {
   }else{
     $filter = "WHERE `category` LIKE '%$search%'";
   }
-  $blogs ="SELECT * FROM `blogs` $filter ORDER BY `post_id` DESC LIMIT $limit";
+  $blogs ="SELECT * FROM `blogs` $filter ORDER BY `post_id` LIMIT $limit OFFSET $offset";
   $Blogresult = mysqli_query($conn, $blogs);
   $Blogtotal = mysqli_num_rows($Blogresult);
   if ($Blogtotal < 1) {
@@ -41,21 +41,21 @@ if ($total < 1) {
     <div class="row">
       <div class="col-lg-6">
         <h5 class='text-center'>Blog(s) not found.</h5>
-        <?php
-        }else{?>
-        <div class="container">
-          <div class="row">
-            <div class="col-lg-6">
-              <?php include 'includes\pages\archive\blog-results.inc.php'; }?>
-            </div>
-            <!-- Sidebar -->
-            <div class="col-lg-6">
-              <?php include 'includes\pages\archive\sidebar.inc.php';?>
-              <div class="tab-pane fade" id="list-user" role="tabpanel" aria-labelledby="list-user-list">
-              <!-- User Archive -->
-              </div>
-            </div>
-          </div>
+      </div>
+    </div>
+  </div>
+<?php
+}else{?>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6">
+        <?php include 'includes\pages\archive\blog-results.inc.php'; }?>
+      </div>
+      <!-- Sidebar -->
+      <div class="col-lg-6">
+        <?php include 'includes\pages\archive\sidebar.inc.php';?>
+        <div class="tab-pane fade" id="list-user" role="tabpanel" aria-labelledby="list-user-list">
+        <!-- User Archive -->
         </div>
       </div>
     </div>

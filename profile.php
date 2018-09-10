@@ -39,10 +39,10 @@
         </div>
       </div>
       <?php $user_id = $_GET['user'];
-        $sql = "SELECT * FROM blogs WHERE `post_author` = $user_id";
+        $sqlblogs = "SELECT * FROM blogs WHERE `post_author` = $user_id";
         // result = what is found in the database
-        $result = mysqli_query($conn, $sql);
-        $total = mysqli_num_rows($result);
+        $resultblog = mysqli_query($conn, $sqlblogs);
+        $total = mysqli_num_rows($resultblog);
         // If there are no results in the database...
         if ($total < 1) {
           ?>
@@ -71,7 +71,7 @@
             // The "forward" link
             $nextlink = ($page < $pages) ? '<a href="'.$profileUrl.$user_id.'&page=' . ($page + 1).'" title="Next page">&rsaquo;</a> <a href="'.$profileUrl.$user_id.'&page=' . ($page + 1).'" title="Last page">&raquo;</a>' : '<span class="disabled">&rsaquo;</span> <span class="disabled">&raquo;</span>';
 
-            $blogs ="SELECT * FROM blogs desc WHERE `post_author` = $user_id LIMIT $limit OFFSET $offset ";
+            $blogs ="SELECT * FROM blogs  WHERE `post_author` = $user_id LIMIT $limit OFFSET $offset ";
             $Blogresult = mysqli_query($conn, $blogs);
             $Blogtotal = mysqli_num_rows($Blogresult);
             // If there are no results in the database...
@@ -83,7 +83,6 @@
               ?>
                 <div class="container" id='blog-box'>
               <?php
-
           while ($row = mysqli_fetch_assoc($Blogresult)) {
             ?>
               <div class="row">
@@ -97,7 +96,6 @@
                 </div>
               </div>
             <?php
-
           }
           ?>
             </div>
