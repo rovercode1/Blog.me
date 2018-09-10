@@ -49,9 +49,6 @@ nav {
   z-index: 1;
   border-bottom: 1px solid #ddd; }
 
-nav.navbar.navbar-expand-lg.navbar-light.bg-light {
-  background: #f8f9fa00 !important; }
-
 #signup {
   display: flex;
   flex-direction: column; }
@@ -67,6 +64,23 @@ a.nav-link {
   color: #898989; }
   a.nav-link:hover {
     color: #000; }
+  a.nav-link .navbar-nav {
+    flex: 1;
+    display: flex;
+    justify-content: center; }
+    a.nav-link .navbar-nav li a {
+      padding: 0px 10px;
+      color: red; }
+
+#user-nav {
+  display: flex; }
+  #user-nav #category {
+    flex: 1;
+    justify-content: center;
+    display: flex; }
+    #user-nav #category li a {
+      padding: 0px 10px;
+      color: red; }
 
 #admin-bar {
   padding: 0px;

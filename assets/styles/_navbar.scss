@@ -3,9 +3,6 @@ nav
   z-index: 1;
   border-bottom: 1px solid #ddd;
 }
-nav.navbar.navbar-expand-lg.navbar-light.bg-light{
-  background: #f8f9fa00!important;
-}
 #signup
 {
   display: flex;
@@ -31,8 +28,35 @@ a.nav-link
     {
       color: #000 ;
     }
-}
 
+    .navbar-nav
+    {
+      flex: 1;
+      display: flex;
+      justify-content: center;
+      li a
+      {
+        padding:0px 10px;
+        color: red;
+      }
+    }
+}
+#user-nav
+{
+
+    #category
+    {
+      flex: 1;
+      justify-content: center;
+      display: flex;
+      li a
+      {
+        padding: 0px 10px;
+        color: red;
+      }
+    }
+    display: flex;
+}
 #admin-bar
 {
   padding: 0px;

@@ -34,17 +34,17 @@ if ($priv == 2) {
   }
 }
  ?>
-    <nav id='user-nav' class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav id='user-nav' class="navbar navbar-expand-lg navbar-light">
       <div class="container">
         <a class="navbar-brand" href="index.php">hotspot.com</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#usernav" aria-controls="usernav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="usernav">
+          <ul id='category'class="navbar-nav">
             <?php include 'includes\pages\header\category_navbar.inc.php'; ?>
           </ul>
-          <ul class="navbar-nav ml-auto">
+          <ul class="navbar-nav">
             <?php
             if (isset($_SESSION['u_id'])) {
               ?>
