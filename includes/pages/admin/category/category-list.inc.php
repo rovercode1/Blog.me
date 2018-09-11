@@ -15,7 +15,11 @@ while($rowCat = mysqli_fetch_assoc($catResults)){?>
       </a>
       <span class="badge badge-primary badge-pill"><?php echo $nCount ?></span>
       <span id='cat-delete'> <form class="" action="includes/admin/category/delete_category.inc.php?c=<?php echo $rowCat['Category'] ?>" method="post">
-        <button type="submit" name="submit"></button>
+        <button type="submit" name="submit">
+          <i class="fas fa-minus-circle"></i>
+        </button>
       </form> </span>
+      <span>
+      </span>
     </li>
 <?php } }?>
