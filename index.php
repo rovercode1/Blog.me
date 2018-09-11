@@ -15,7 +15,7 @@
           <h1 class='main-header'>Most Recent</h1>
           <?php include 'includes/pages/index/most-recent.inc.php';?>
           <div class="container view-more" >
-            <a href="<?php echo $fullUrl ?>/archive.php?s=top">View More</a>
+            <a href="<?php echo $fullUrl ?>/archive.php?s=all">View More</a>
           </div>
         </div>
       </div>

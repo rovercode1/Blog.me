@@ -32,7 +32,7 @@ if ($total < 1) {
   }else{
     $filter = "WHERE `category` LIKE '%$search%'";
   }
-  $blogs ="SELECT * FROM `blogs` $filter ORDER BY `post_id` LIMIT $limit OFFSET $offset";
+  $blogs ="SELECT * FROM `blogs` $filter ORDER BY `post_id` DESC LIMIT $limit OFFSET $offset";
   $Blogresult = mysqli_query($conn, $blogs);
   $Blogtotal = mysqli_num_rows($Blogresult);
   if ($Blogtotal < 1) {

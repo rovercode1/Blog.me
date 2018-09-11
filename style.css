@@ -403,12 +403,6 @@ header {
     flex-direction: column; }
   #main-site .container {
     max-width: 100%; } }
-.testimonial-box {
-  text-align: center;
-  background: #ddd;
-  height: 300px;
-  width: 100%; }
-
 #contact-us {
   background: #d89901;
   padding: 30px 0px;
@@ -573,7 +567,8 @@ div#paging span, div#paging a {
   flex-direction: row;
   align-items: flex-start; }
   .archive-block img {
-    max-width: 160px; }
+    max-height: 93px;
+    margin-bottom: 5px; }
   .archive-block p {
     padding-left: 20px; }
 

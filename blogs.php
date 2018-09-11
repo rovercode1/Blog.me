@@ -37,7 +37,9 @@ include 'includes/dbh.inc.php';
             $category = explode(",",$Rowcategory);
             for ($i=0; $i < sizeof($category); $i++) {
               ?>
+              <a href="http://localhost/news-website/archive.php?s=<?php echo $category[$i] ?>">
                 <li> <?php echo $category[$i] ?> </li>
+              </a>
               <?php
             }
            ?>
