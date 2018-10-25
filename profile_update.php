@@ -7,7 +7,7 @@ if (isset($_SESSION['u_id'])) {
   $resultCheck = mysqli_num_rows($result);
   // If there are no results in the database...
   if ($resultCheck < 1) {
-    header("Location: index.php?blog=noblog");
+    header("Location: index.php?blog=nouser");
     exit();
   }else{
     $row = mysqli_fetch_assoc($result);

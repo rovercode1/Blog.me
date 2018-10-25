@@ -33,7 +33,7 @@ if (isset($_SESSION['u_id'])) {
         $resultCheck = mysqli_num_rows($result);
         // If there is already a user with that Username
         // Throw an error
-        if ($resultCheck > 0) {
+        if ($resultCheck > 0 && $currentUser !== $user_id) {
           header("Location: ../../update_profile.php?user=usertaken");
           exit();
         }else{
